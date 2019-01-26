@@ -10,7 +10,6 @@ public class BackgroundMovement : MonoBehaviour
     public float speed;
     public Vector3 startPos;
 
-<<<<<<< HEAD
 	float dT;
 	// Use this for initialization
 	void Start () {
@@ -19,17 +18,6 @@ public class BackgroundMovement : MonoBehaviour
 		speed = 2.5f;
 		startPos=transform.position;
 	}
-=======
-    float dT;
-    // Use this for initialization
-    void Start()
-    {
-        Reset();
-        dT = Time.time;
-        speed = 7.5f;
-        startPos = transform.position;
-    }
->>>>>>> 2e0ea51dec5a058689e926c8c50cca579a7b24ee
 
     // Update is called once per frame
     void Update()
@@ -54,7 +42,8 @@ public class BackgroundMovement : MonoBehaviour
         }
         objectList.Clear();
 
-<<<<<<< HEAD
+		List<float> objectPos = getPos();
+
 		for (int i = 0; i < objectPos.Count; i++) {
 			int random = UnityEngine.Random.Range (0, objectResoursceList.Count);
 			GameObject backgroundObject = Instantiate (objectResoursceList[random], gameObject.transform);
@@ -63,21 +52,7 @@ public class BackgroundMovement : MonoBehaviour
 				+ gameObject.transform.position;
 			objectList.Add (backgroundObject);
 		}
-=======
-        List<float> objectPos = getPos();
-
-        for (int i = 0; i < objectPos.Count; i++)
-        {
-            GameObject backgroundObject = Instantiate(objectResoursceList[0], gameObject.transform);
-            backgroundObject.transform.position = new Vector3(24 * objectPos[i], 0, 0) + gameObject.transform.position;
-            backgroundObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 45));
-            backgroundObject.transform.localScale = new Vector3(0.0175f, 0.0175f, 0.5f);
-            objectList.Add(backgroundObject);
->>>>>>> 2e0ea51dec5a058689e926c8c50cca579a7b24ee
-
-        }
-
-    }
+	}
 
     List<float> getPos()
     {
