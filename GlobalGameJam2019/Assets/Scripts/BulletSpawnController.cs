@@ -31,6 +31,7 @@ public class BulletSpawnController : MonoBehaviour
                 int spawnindexValue = w.spawnindexArray[i];
                 if (spawnindexValue <= spawnerList.Count - 1)
                     Instantiate(w.bulletPrefab, spawnerList[spawnindexValue].position, spawnerList[spawnindexValue].rotation);
+
                 yield return new WaitForSeconds(w.delayBetweenSpawns);
             }
             yield return new WaitForSeconds(w.delayBetweenBullets);
@@ -44,7 +45,7 @@ public class BulletSpawnController : MonoBehaviour
         int index;
         index = Random.Range(0, wavePatterns.Count);
 
-        Debug.Log("Random Wave index" + index + "/" + (wavePatterns.Count));
+        Debug.Log("Random Wave index" + index + "/" + (wavePatterns.Count - 1));
         return wavePatterns[index];
     }
 }
