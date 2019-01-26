@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public Transform player;
+    public Rigidbody2D rigidBody;
+
     public float speed = 10;
     public Vector2 movement;
     private bool InJump = false;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
         audioManager = GetComponent<AudioManager>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private int _frameCount;
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour {
                 audioManager.PlayPitchRandom("step", 0.1f);
         }
 
-        if (Mathf.Abs(player.position.y) <= 0.01)
+        if (Mathf.Abs(transform.position.y) <= 0.01)
             Jumped = DoubleJump = false;
 
         if (Jumped) {
@@ -49,17 +51,17 @@ public class PlayerController : MonoBehaviour {
                 audioManager.Play("jump_double");
             } else if (Jumped) {
                 DoubleJump = true;
-                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                rigidBody.velocity = Vector2.zero;
                 movement = new Vector2(moveHorizontal, 13);
             } else {
                 Jumped = true;
-                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                rigidBody.velocity = Vector2.zero;
                 movement = new Vector2(moveHorizontal, 12);
             }
         } else {
             movement = new Vector2(moveHorizontal, 0);
         }
 
-        player.GetComponent<Rigidbody2D>().AddForce(movement, ForceMode2D.Impulse);
+        rigidBody.AddForce(movement, ForceMode2D.Impulse);
     }
 }
