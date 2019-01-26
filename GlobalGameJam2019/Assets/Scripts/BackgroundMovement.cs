@@ -14,7 +14,6 @@ public class BackgroundMovement : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		Reset ();
-		dT = Time.time;
 		speed = 2.5f;
 		startPos=transform.position;
 	}
@@ -23,7 +22,7 @@ public class BackgroundMovement : MonoBehaviour
     void Update()
     {
 
-        transform.position += speed * (Time.time - dT) * Vector3.left;
+        transform.position += speed * Time.deltaTime * Vector3.left;
         dT = Time.time;
 
         if (transform.position.x <= -24)
