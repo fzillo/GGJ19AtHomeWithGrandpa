@@ -2,50 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
-    
+public class PlayerController : MonoBehaviour {
+
     public Transform player;
     public float speed = 10;
-	public Vector2 movement;
-	private bool InJump = false;
-	private bool Jumped = false;
-	private bool DoubleJump = false;
+    public Vector2 movement;
+    private bool InJump = false;
+    private bool Jumped = false;
+    private bool DoubleJump = false;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-		if(moveHorizontal > 0)
-			moveHorizontal = speed;
-		if(moveHorizontal < 0)
-			moveHorizontal = -speed;
+    private AudioManager audioManager;
 
-		if (Mathf.Abs(player.position.y) <= 0.01)
-			Jumped = DoubleJump = false;
-		
-		if(Jumped)
-			moveHorizontal = moveHorizontal/2;
+    private void Start() {
+        audioManager = GetComponent<AudioManager>();
+    }
 
-		if (Input.GetAxisRaw ("Vertical") == 0)
-			InJump = false;
-		if(Input.GetAxisRaw("Vertical") == 1 && !InJump)
-		{
-			InJump = true;
-			if (DoubleJump)
-				movement = new Vector2 (moveHorizontal, 0);
-			else if (Jumped) {
-				DoubleJump = true;
-				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-				movement = new Vector2 (moveHorizontal, 13);
-			}
-			else{
-				Jumped = true;
-				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-				movement = new Vector2 (moveHorizontal, 12);
-			}
-		}
-		else movement = new Vector2 (moveHorizontal, 0);
-        player.GetComponent<Rigidbody2D>().AddForce (movement, ForceMode2D.Impulse);
+    private int _frameCount;
+    void FixedUpdate() {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        if (moveHorizontal != 0) {
+            if (moveHorizontal > 0)
+                moveHorizontal = speed;
+            if (moveHorizontal < 0)
+                moveHorizontal = -speed;
+
+            if (_frameCount % 30 == 0) // alle 30 frames step sound abspielen
+                audioManager.PlayPitchRandom("step", 0.1f);
+        }
+
+        if (Mathf.Abs(player.position.y) <= 0.01)
+            Jumped = DoubleJump = false;
+
+        if (Jumped) {
+            moveHorizontal = moveHorizontal / 2;
+            audioManager.Play("jump");
+        }
+
+        if (Input.GetAxisRaw("Vertical") == 0)
+            InJump = false;
+
+        if (Input.GetAxisRaw("Vertical") == 1 && !InJump) {
+            InJump = true;
+            if (DoubleJump) {
+                movement = new Vector2(moveHorizontal, 0);
+                audioManager.Play("jump_double");
+            } else if (Jumped) {
+                DoubleJump = true;
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                movement = new Vector2(moveHorizontal, 13);
+            } else {
+                Jumped = true;
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                movement = new Vector2(moveHorizontal, 12);
+            }
+        } else {
+            movement = new Vector2(moveHorizontal, 0);
+        }
+
+        player.GetComponent<Rigidbody2D>().AddForce(movement, ForceMode2D.Impulse);
     }
 }
