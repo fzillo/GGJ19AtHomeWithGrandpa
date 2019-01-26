@@ -26,14 +26,14 @@ public class Arm : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             ActivateArm();
         }
         if (active)
         {
             counter += (1 * forwardBackwardModifier);
-            Debug.Log(counter);
+            //Debug.Log(counter);
             if (counter < 0)
             {
                 active = false;
@@ -44,7 +44,7 @@ public class Arm : MonoBehaviour
                 return;
             }
 
-            Debug.Log("tfPos " + this.transform.position.x + " posBefore " + posXBefore + " max " + maxForward);
+            //Debug.Log("tfPos " + this.transform.position.x + " posBefore " + posXBefore + " max " + maxForward);
             if (Mathf.Abs(posXBefore - this.transform.position.x) > maxForward)
             {
                 //yield return new WaitForSeconds(timeLingering);
@@ -59,7 +59,7 @@ public class Arm : MonoBehaviour
     void ActivateArm()
     {
         if (active) return;
-        Debug.Log("Activate Arm!");
+        //Debug.Log("Activate Arm!");
         active = true;
         //StartCoroutine(MoveArm());
     }
