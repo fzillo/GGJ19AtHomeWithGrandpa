@@ -52,6 +52,7 @@ public class AudioManager : MonoBehaviour {
     public void PlayPitchRandom(string name, float maxDeviation = 1.0f) {
         var sound = GetSound(name);
         float randPitch = UnityEngine.Random.Range(sound.pitch - maxDeviation, sound.pitch + maxDeviation);
-        PlayPitch(name, randPitch);
+        sound.pitch = randPitch;
+        sound.source.Play();
     }
 }
