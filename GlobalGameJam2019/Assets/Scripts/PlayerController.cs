@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public static PlayerController instance;
     public Transform player;
     public float speed = 10;
 	public Vector2 movement;
@@ -12,7 +12,17 @@ public class PlayerController : MonoBehaviour
 	private bool Jumped = false;
 	private bool DoubleJump = false;
 
-    // Update is called once per frame
+	public float getAngryScore()
+	{
+		// TODO: retrieve it!!!!
+		return 0.5f;
+	}
+
+	void Awake()
+	{
+		PlayerController.instance = this;
+	}
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis ("Horizontal");

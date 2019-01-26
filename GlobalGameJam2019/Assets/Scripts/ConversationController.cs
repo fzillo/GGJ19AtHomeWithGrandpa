@@ -1,10 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ConversationController : MonoBehaviour
 {
     public static ConversationController instance;
+    private PlayerController player;
+    public GameObject enemy;
+
+    public GameObject buttonContainer;
+    public GameObject buttonPrefab;
+
+    private void someFunc(){}
     private List<Skill> availableSkills = new List<Skill> {
         new Skill("Gegenbeleidigung",-1,1,"", 0f),
         new Skill("Weggehen",-1,0,"",0f),
@@ -21,10 +30,100 @@ public class ConversationController : MonoBehaviour
         new Attack("Redeschwall","",0f),
         new Attack("Greifende Arme","",0f)
     };
+
+    private Skill[] currentSkills = new Skill[3];
+
     // Update is called once per frame
     void Awake()
     {
         ConversationController.instance = this;
+    }
+
+    void callSkill(Skill skill)
+    {
+        // TODO: call the effect here
+        Debug.Log("skill called "+skill.name);
+    }
+    void spawnNewSkillButton(Skill skill)
+    {
+        var newButton = Instantiate(buttonPrefab);
+        newButton.GetComponent<SkillButton>().setSkill(skill);
+        newButton.GetComponent<SkillButton>().setCallback(() => callSkill(skill));
+        newButton.transform.SetParent(buttonContainer.transform);
+        newButton.transform.localScale = new Vector3(1,1,1);
+    }
+
+    void removeSkillButton(Skill skill)
+    {
+
+        GameObject deleteme = null;
+        foreach(Transform child in buttonContainer.transform)
+        {
+            if(child.GetComponent<SkillButton>().skill ==skill)
+            {
+                deleteme = child.gameObject;
+            }
+        }
+        if(deleteme != null) 
+        {
+            Destroy(deleteme);
+
+            Debug.Log("Button was removed "+skill.name);
+        }
+    }
+
+    private void removeSkill(Skill skill)
+    {
+        for(int i = 0; i < currentSkills.Length; i++)
+        {
+            Debug.Log("skill "+skill.name+" was removed");
+            if (currentSkills[i] == skill) currentSkills[i] = null;
+            return;
+        }
+    }
+
+    void Update()
+    {
+        Debug.Log("update");
+        if(PlayerController.instance != null) player = PlayerController.instance;
+
+        // set next skill
+        for(int i = 0; i < currentSkills.Length; i++)
+        {
+            if(currentSkills[i] == null)
+            {
+                currentSkills[i] = getNextSkill(player.getAngryScore());
+                currentSkills[i].startedTime = Time.time;
+                spawnNewSkillButton(currentSkills[i]);
+            }
+        }
+        // check which skills are depleated
+        for(int i = 0; i < currentSkills.Length; i++)
+        {   
+            var skill = currentSkills[i];
+
+            if(skill.timeUntilDisappearSec * 0.5 < Time.time - skill.startedTime)
+            {
+                setSkillViewAge(skill);
+            }
+
+            if(skill.timeUntilDisappearSec < Time.time - skill.startedTime)
+            {
+                removeSkill(skill);
+                removeSkillButton(skill);
+            }
+        }
+    }
+    
+    void setSkillViewAge(Skill skill)
+    {
+        foreach(Transform child in buttonContainer.transform)
+        {
+            if(child.GetComponent<SkillButton>().skill ==skill)
+            {
+                child.GetComponent<SkillButton>().setAge(0.5);
+            }
+        }
     }
 
     // allways returns an array length 4
@@ -34,7 +133,7 @@ public class ConversationController : MonoBehaviour
     {
         while(true)
         {
-            var skill =  availableSkills[Random.Range(0,availableSkills.Count)];
+            var skill =  availableSkills[UnityEngine.Random.Range(0,availableSkills.Count)];
             if(skill.neededCalmness < 1f - playerAngryLevel)
             {
                 var newSkill = skill.Clone();
@@ -48,7 +147,7 @@ public class ConversationController : MonoBehaviour
     {
         while(true)
         {
-            var attk =  availableAttacks[Random.Range(0,availableAttacks.Count)];
+            var attk =  availableAttacks[UnityEngine.Random.Range(0,availableAttacks.Count)];
             if(attk.neededAngryNes < 1f - enemyAngryLevel)
             {
                 var newAttk = attk.Clone();
@@ -66,12 +165,15 @@ public class ConversationController : MonoBehaviour
             this.eigenEinFluss = eigenEinFluss;
             this.audioFileName = audioFileName;
             this.neededCalmness = neededCalmness;
+            this.name = name;
         }
+        public string name;
         public int gegnerEinFluss;
         public int eigenEinFluss;
         public string audioFileName;
         public float neededCalmness;
         public float timeUntilDisappearSec = 0f;
+        public float startedTime = 0;
 
         // https://stackoverflow.com/questions/6569486/creating-a-copy-of-an-object-in-c-sharp
         public Skill Clone()
