@@ -13,7 +13,7 @@ public class BulletSpawnController : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             //StartCoroutine(SpawnWave(3, spinBulletPrefab, spawnerList[0], (float)0.3));
-            Wave w = new Wave(straightBulletPrefab, 1, 1, new int[] { 1 }, 0);
+            Wave w = new Wave(straightBulletPrefab, 1, 1, new int[] { 0 }, 0);
             StartCoroutine(SpawnWave(w));
         }
     }
