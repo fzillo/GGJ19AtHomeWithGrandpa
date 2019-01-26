@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10;
-    public Rigidbody2D rb2D;
-
+    public float speed = -1;
+    public Transform tf;
     public AudioManager audioM;
 
     void Start()
     {
-        rb2D.velocity = -transform.right * speed;
         audioM = FindObjectOfType<AudioManager>();
         audioM.Play("PloppHigh");
     }
@@ -22,8 +20,9 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-        Destroy(gameObject);
+
         audioM.Play("PloppLow");
+        Destroy(gameObject);
         Debug.Log(coll);
     }
 
