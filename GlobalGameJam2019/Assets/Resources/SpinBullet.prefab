@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1412390044521272108}
   - component: {fileID: 1412390044521272109}
   - component: {fileID: 1412390044521272111}
-  - component: {fileID: 1412390044521272110}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1412390044521272083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 1412390045832801531}
   m_RootOrder: 0
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a63b710cabe34cc4b9c6737b13d221b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 698ff4f30bdbad44b9212920bd4e9110, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +96,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.58
 --- !u!114 &1412390044521272111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,27 +113,6 @@ MonoBehaviour:
   tf: {fileID: 1412390045832801531}
   audioM: {fileID: 0}
   spin: 1
---- !u!50 &1412390044521272110
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412390044521272083}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1412390045832801528
 GameObject:
   m_ObjectHideFlags: 0
