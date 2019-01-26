@@ -291,8 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747803916f98b504d90ba96a92aaeb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRB: {fileID: 5622880237525417502}
+  player: {fileID: 5622880237525417500}
   speed: 1
+  movement: {x: 0, y: 0}
 --- !u!4 &1726733002
 Transform:
   m_ObjectHideFlags: 0
