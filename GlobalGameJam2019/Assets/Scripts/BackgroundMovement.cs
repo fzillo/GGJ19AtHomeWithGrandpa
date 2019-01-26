@@ -14,7 +14,7 @@ public class BackgroundMovement : MonoBehaviour {
 	void Start () {
 		Reset ();
 		dT = Time.time;
-		speed = 7.5f;
+		speed = 2.5f;
 		startPos=transform.position;
 	}
 
@@ -40,12 +40,12 @@ public class BackgroundMovement : MonoBehaviour {
 		List<float> objectPos = getPos ();
 
 		for (int i = 0; i < objectPos.Count; i++) {
-			GameObject backgroundObject = Instantiate (objectResoursceList[0], gameObject.transform);
-			backgroundObject.transform.position = new Vector3 (24 * objectPos, 0, 0)+gameObject.transform.position;
-			backgroundObject.transform.rotation= Quaternion.Euler(new Vector3(0,180,45));
-			backgroundObject.transform.localScale=new Vector3 (0.0175f, 0.0175f, 0.5f);
+			int random = UnityEngine.Random.Range (0, objectResoursceList.Count);
+			GameObject backgroundObject = Instantiate (objectResoursceList[random], gameObject.transform);
+			backgroundObject.transform.position = 
+				new Vector3 (24 * objectPos[i], objectResoursceList[random].transform.position.y, 0)
+				+ gameObject.transform.position;
 			objectList.Add (backgroundObject);
-
 		}
 
 	}
