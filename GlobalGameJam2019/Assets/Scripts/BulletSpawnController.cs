@@ -7,24 +7,15 @@ public class BulletSpawnController : MonoBehaviour
     public Transform straightBulletPrefab;
     public Transform spinBulletPrefab;
     public List<Transform> spawnerList;
+    public List<Wave> wavePatterns;
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
-            //StartCoroutine(SpawnWave(3, spinBulletPrefab, spawnerList[0], (float)0.3));
-            Wave w = new Wave(straightBulletPrefab, 1, 1, new int[] { 0 }, 0);
+            Wave w = SelectRandomWaveFromPool();
+            if (w == null) return;
             StartCoroutine(SpawnWave(w));
-        }
-    }
-
-    [System.Obsolete("This is an obsolete method")]
-    IEnumerator SpawnWave(int nBullets, Transform bulletPrefab, Transform spawnPosition, float timeBetweenBullets)
-    {
-        for (int i = 0; i < nBullets; i++)
-        {
-            Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
-            yield return new WaitForSeconds(timeBetweenBullets);
         }
     }
 
@@ -37,10 +28,24 @@ public class BulletSpawnController : MonoBehaviour
         {
             for (int i = 0; i < w.spawnindexArray.Length; i++)
             {
-                Instantiate(w.bulletPrefab, spawnerList[i].position, spawnerList[i].rotation);
+                int spawnindexValue = w.spawnindexArray[i];
+                if (spawnindexValue <= spawnerList.Count - 1)
+                    Instantiate(w.bulletPrefab, spawnerList[spawnindexValue].position, spawnerList[spawnindexValue].rotation);
+
                 yield return new WaitForSeconds(w.delayBetweenSpawns);
             }
+            yield return new WaitForSeconds(w.delayBetweenBullets);
         }
     }
 
+    public Wave SelectRandomWaveFromPool()
+    {
+        if (wavePatterns.Count == 0) return null;
+
+        int index;
+        index = Random.Range(0, wavePatterns.Count);
+
+        Debug.Log("Random Wave index" + index + "/" + (wavePatterns.Count - 1));
+        return wavePatterns[index];
+    }
 }

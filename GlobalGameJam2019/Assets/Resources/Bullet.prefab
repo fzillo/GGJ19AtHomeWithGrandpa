@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rb2D: {fileID: 4676194173808824919}
+  tf: {fileID: 7380070393313384949}
   audioM: {fileID: 0}
 --- !u!50 &4676194173808824919
 Rigidbody2D:
