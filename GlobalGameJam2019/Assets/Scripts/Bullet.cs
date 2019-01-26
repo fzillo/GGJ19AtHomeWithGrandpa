@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        rb2D.velocity = -transform.right * speed;
         audioM = FindObjectOfType<AudioManager>();
         audioM.Play("PloppHigh");
     }
