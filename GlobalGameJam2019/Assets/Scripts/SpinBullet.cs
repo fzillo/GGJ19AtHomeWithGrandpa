@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinBullet : MonoBehaviour
+public class SpinBullet : Bullet
 {
+    public float spin = (float)1;
 
-    //public Rigidbody2D rb2D;
-    public float speed = 10;
-    public Transform rotationPointParent;
-
-    void Start()
-    {
-        //rb2D.velocity = -transform.right * speed;
-    }
-    // Update is called once per frame
     void Update()
     {
-        rotationPointParent.transform.Rotate(0, 0, 1);
+        Vector3 moveVect = new Vector3(speed * Time.deltaTime, 0, 0);
 
+        tf.transform.Rotate(0, 0, spin);
+        tf.Translate(moveVect, Space.World);
     }
 }

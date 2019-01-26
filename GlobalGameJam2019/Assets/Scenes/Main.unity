@@ -303,6 +303,12 @@ MonoBehaviour:
     pitch: 1.6
     loop: 0
     source: {fileID: 0}
+  - name: PloppHigh
+    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
+    volume: 1
+    pitch: 1.6
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1041782849
 Transform:
   m_ObjectHideFlags: 0
@@ -772,6 +778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2a68bcc00626e4a9f942463b9ad3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background1: {fileID: 0}
+  background2: {fileID: 0}
 --- !u!4 &1779500369
 Transform:
   m_ObjectHideFlags: 0

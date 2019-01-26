@@ -5,9 +5,9 @@ using UnityEngine;
 public class StraightBullet : Bullet
 {
 
-    void Start()
+    void Update()
     {
-        rb2D.velocity = -transform.right * speed;
+        Vector3 moveVect = new Vector3(speed * Time.deltaTime, 0, 0);
+        tf.Translate(moveVect, Space.Self);
     }
-
 }
