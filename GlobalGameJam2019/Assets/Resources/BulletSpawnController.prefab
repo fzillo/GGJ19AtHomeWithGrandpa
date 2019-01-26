@@ -302,8 +302,9 @@ MonoBehaviour:
   - {fileID: 8622509160335663531, guid: 459dc030c429750418503d814574a0d2, type: 3}
   - {fileID: 294976029193188707, guid: a26842575c3090e4fafb69b09b1f5756, type: 3}
   - {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73, type: 3}
-  - {fileID: 0}
-  randomWave: {fileID: 0}
+  - {fileID: 4264525058261503862, guid: 509e170ea32181d4a95e911830af39b4, type: 3}
+  randomWave: {fileID: 4788587899052856267, guid: 7c8a6764b14926e46a5510ca6ca91666,
+    type: 3}
   spawnsMin: 1
   spawnsMax: 5
   RandomWaveBulletsPerSpawnMin: 1
