@@ -276,6 +276,8 @@ MonoBehaviour:
     type: 3}
   spinBulletPrefab: {fileID: 1412390045832801531, guid: 9628c3d96e354884b8dbda604979e8bc,
     type: 3}
+  zigzagBulletPrefab: {fileID: 6112485014863158467, guid: ab0b1dc22ad6a7240b4e29b99168f5cb,
+    type: 3}
   spawnerList:
   - {fileID: 5780651570877159163}
   - {fileID: 5780651569266785135}
@@ -301,6 +303,15 @@ MonoBehaviour:
   - {fileID: 294976029193188707, guid: a26842575c3090e4fafb69b09b1f5756, type: 3}
   - {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73, type: 3}
   - {fileID: 0}
+  randomWave: {fileID: 0}
+  spawnsMin: 1
+  spawnsMax: 5
+  RandomWaveBulletsPerSpawnMin: 1
+  RandomWaveBulletsPerSpawnMax: 3
+  RandomWaveDelayBetweenBulletsMin: 0.3
+  RandomWaveDelayBetweenBulletsMax: 1
+  RandomWaveDelayBetweenSpawnsMin: 0.3
+  RandomWaveDelayBetweenSpawnsMax: 1
 --- !u!1 &5780651569845927816
 GameObject:
   m_ObjectHideFlags: 0
