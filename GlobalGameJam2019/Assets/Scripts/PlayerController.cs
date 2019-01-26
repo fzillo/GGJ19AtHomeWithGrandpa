@@ -16,8 +16,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis ("Horizontal");
-		if (player.y <= 0)
+		if(moveHorizontal > 0)
+			moveHorizontal = speed;
+		if(moveHorizontal < 0)
+			moveHorizontal = -speed;
+
+		if (Mathf.Abs(player.position.y) <= 0.01)
 			Jumped = DoubleJump = false;
+		
+		if(Jumped)
+			moveHorizontal = moveHorizontal/2;
 
 		if (Input.GetAxisRaw ("Vertical") == 0)
 			InJump = false;
@@ -28,10 +36,16 @@ public class PlayerController : MonoBehaviour
 				movement = new Vector2 (moveHorizontal, 0);
 			else if (Jumped) {
 				DoubleJump = true;
-				movement = new Vector2 (moveHorizontal, 0);
+				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+				movement = new Vector2 (moveHorizontal, 13);
 			}
-		
-        player.rigidbody.AddForce (movement * speed, ForceMode2D.Impulse);
-
+			else{
+				Jumped = true;
+				player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+				movement = new Vector2 (moveHorizontal, 12);
+			}
+		}
+		else movement = new Vector2 (moveHorizontal, 0);
+        player.GetComponent<Rigidbody2D>().AddForce (movement, ForceMode2D.Impulse);
     }
 }
