@@ -2,34 +2,23 @@
 using System;
 using UnityEngine;
 
-/**
-* Thank you Brackeys! https://www.youtube.com/watch?v=6OT43pvUyfY
- */
 [Serializable]
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
     public Sound[] sounds;
 
     public static AudioManager instance;
 
-    // Initialization
-    void Awake()
-    {
-        if (instance == null)
-        {
+    void Awake() {
+        if (instance == null) {
             instance = this;
-        }
-        else
-        {
+        } else {
             Destroy(gameObject);
             return;
         }
 
-        // Persists during szene transitions
         DontDestroyOnLoad(gameObject);
 
-        foreach (Sound s in sounds)
-        {
+        foreach (Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
@@ -37,23 +26,32 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Play("Theme");
     }
 
-    // Insert name of sound to play it
-    public void Play(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-
-        if (s == null)
-        {
+    private Sound GetSound(string name) {
+        Sound sound = Array.Find(sounds, s => s.name == name);
+        if (sound == null) {
             Debug.LogWarning("Sound could not be found: " + name);
-            return;
         }
+        return sound;
+    }
 
-        s.source.Play();
+    public void Play(string name) {
+        var sound = GetSound(name);
+        sound.source.Play();
+    }
+
+    public void PlayPitch(string name, float pitch) {
+        var sound = GetSound(name);
+        sound.pitch = pitch;
+        sound.source.Play();
+    }
+
+    public void PlayPitchRandom(string name, float maxDeviation = 1.0f) {
+        var sound = GetSound(name);
+        float randPitch = UnityEngine.Random.Range(sound.pitch - maxDeviation, sound.pitch + maxDeviation);
+        PlayPitch(name, randPitch);
     }
 }
