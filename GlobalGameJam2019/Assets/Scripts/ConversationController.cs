@@ -48,7 +48,7 @@ public class ConversationController : MonoBehaviour
     {
         while(true)
         {
-            var attk =  availableSkills[Random.Range(0,availableAttacks.Count)];
+            var attk =  availableAttacks[Random.Range(0,availableAttacks.Count)];
             if(attk.neededCalmness < 1f - enemyAngryLevel)
             {
                 var newAttk = attk.Clone();
