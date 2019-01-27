@@ -8,9 +8,15 @@ public class PlayerController : MonoBehaviour {
 
     public float speed = 10;
     public Vector2 movement;
+
     private bool InJump = false;
     private bool Jumped = false;
     private bool DoubleJump = false;
+	private Animator animator;
+
+	void Start(){
+		animator = player.GetComponent<Animator>();
+	}
 
     private AudioManager audioManager;
 
@@ -28,6 +34,10 @@ public class PlayerController : MonoBehaviour {
                 moveHorizontal = speed;
             if (moveHorizontal < 0)
                 moveHorizontal = -speed;
+		if(moveHorizontal == 0)
+			animator.SetBool("Running", false);
+		else
+			animator.SetBool("Running", true);
 
             if (_frameCount % 30 == 0) // alle 30 frames step sound abspielen
                 audioManager.PlayPitchRandom("step", 0.1f);
