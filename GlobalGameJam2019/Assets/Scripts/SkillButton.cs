@@ -17,6 +17,7 @@ public class SkillButton : MonoBehaviour
         Button button = GetComponent<Button>();
         this.skill = skill;
         button.transform.GetChild(0).GetComponent<Text>().text = skill.name;
+        setAge(0);
     }
     public void setCallback(UnityAction func)
     {
@@ -27,7 +28,7 @@ public class SkillButton : MonoBehaviour
     public void setAge(float v)
     {
       //  Debug.Log(v);
-        GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,v);
+        GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,1f-v);
     }
 
     public void setButtonIndex(int i)

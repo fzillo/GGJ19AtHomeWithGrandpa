@@ -118,7 +118,7 @@ public class PlayerController2 : MonoBehaviour {
         if (Input.GetAxisRaw("Vertical") == 0) {
             InJump = false;
         }
-        if (Input.GetAxisRaw("Vertical") == 1 && !InJump) {
+		if ((Input.GetAxisRaw("Vertical") == 1 && !InJump)||Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("joystick button 0")) {
             _airborn = true;
             InJump = true;
 
@@ -129,15 +129,15 @@ public class PlayerController2 : MonoBehaviour {
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump_double", 0.005f);
 
-                //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 10);
+				rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                movement = new Vector2(h, 16);
             } else {
                 Jumped = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump", 0.005f);
 
                 //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 10);
+                movement = new Vector2(h, 12);
             }
         } else movement = new Vector2(h, 0);
         rb2d.AddForce(movement, ForceMode2D.Impulse);
