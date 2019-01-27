@@ -25,11 +25,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489142101379189455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -0.59, z: 1}
+  m_LocalPosition: {x: 0.06, y: -0.92, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7916857250218537972}
-  m_RootOrder: 1
+  m_Father: {fileID: 7916857250866558651}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2963385342972287965
 SpriteRenderer:
@@ -104,11 +104,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935575886687868558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.16, y: 0.71, z: 1}
+  m_LocalPosition: {x: 2.32, y: 0.01, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7916857250218537972}
-  m_RootOrder: 2
+  m_Father: {fileID: 7916857250866558651}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5044040125132479084
 SpriteRenderer:
@@ -167,7 +167,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7916857250218537972}
-  - component: {fileID: 7916857250218537971}
   - component: {fileID: 7916857250218537970}
   m_Layer: 0
   m_Name: Player_depr
@@ -188,26 +187,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7916857250866558651}
-  - {fileID: 1673142923838907302}
-  - {fileID: 3467202639442356315}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7916857250218537971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7916857250218537969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747803916f98b504d90ba96a92aaeb82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 7916857250866558651}
-  speed: 0.5
-  movement: {x: 0, y: 0}
 --- !u!114 &7916857250218537970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +206,7 @@ MonoBehaviour:
   moveSpeed: 0.2
   movement: {x: 0, y: 0}
   player: {fileID: 7916857250866558651}
+  lifemeterInstance: {fileID: 0}
   grounded: 0
   shield: {fileID: 489142101379189455}
   shout: {fileID: 1935575886687868558}
@@ -256,7 +239,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1673142923838907302}
+  - {fileID: 3467202639442356315}
   m_Father: {fileID: 7916857250218537972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

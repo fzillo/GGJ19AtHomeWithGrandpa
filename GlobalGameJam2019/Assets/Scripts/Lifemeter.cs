@@ -59,6 +59,7 @@ public class Lifemeter : MonoBehaviour
         }
     }
 
+    
     public int DecreaseLife(int value)
     {
         Debug.Log("Decrease Life by: " + value);
