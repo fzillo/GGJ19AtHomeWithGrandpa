@@ -46,6 +46,17 @@ public class PlayerController2 : MonoBehaviour
 		anim.SetBool("Grounded", grounded);
 	}
 
+	public void effectShield()
+	{
+
+	}
+
+	public void effectShout()
+	{
+		
+	}
+
+
 	void FixedUpdate()
 	{
 		float h = Input.GetAxis("Horizontal");
@@ -84,7 +95,7 @@ public class PlayerController2 : MonoBehaviour
 		else movement = new Vector2 (h, 0);
 		rb2d.AddForce (movement, ForceMode2D.Impulse);
 
-		/*
+/*
 		if (h * rb2d.velocity.x < maxSpeed)
 			rb2d.AddForce(Vector2.right * h * moveForce);
 
