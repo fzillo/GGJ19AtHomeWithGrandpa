@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour {
+public class PlayerController2 : MonoBehaviour
+{
     public static PlayerController2 instance;
     [HideInInspector] public bool facingRight = true;
     public float moveSpeed = 0.2f;
     public Vector2 movement;
-	public float spriteToBottomDist = 2.0f;
+    public float spriteToBottomDist = 2.0f;
 
     public Transform player;
     public Lifemeter lifemeterInstance;
@@ -20,60 +21,67 @@ public class PlayerController2 : MonoBehaviour {
     private bool Jumped = false;
     private bool DoubleJump = false;
 
+    public bool shieldActive = false;
+
     public GameObject shield;
     public GameObject shout;
     public GameObject question;
 
     // Use this for initialization
-    void Awake() {
+    void Awake()
+    {
         instance = this;
         anim = player.GetComponent<Animator>();
         rb2d = player.GetComponent<Rigidbody2D>();
     }
 
-    void Start() {
+    void Start()
+    {
         audioManager = AudioManager.instance;
+        audioManager.PlaySequence("intro", "Theme");
     }
 
     // Update is called once per frame
-    void Update() {
-		
-		float distanceToGround = spriteToBottomDist;
+    void Update()
+    {
+
+        float distanceToGround = spriteToBottomDist;
 
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 5, 1 << LayerMask.NameToLayer("Ground"));
-		
-        if (hit.collider != null)
-		{
-			distanceToGround = player.transform.position.y - hit.point.y;
-			if(grounded && (distanceToGround > spriteToBottomDist + 0.2f))
-				grounded = false;
-			if(!grounded && (distanceToGround < spriteToBottomDist + 0.2f))
-				grounded = true;
-		}
-       	else
-		{
-			grounded = false;
-			distanceToGround = 5;
-		}
 
-		anim.SetBool("Grounded", grounded);
+        if (hit.collider != null)
+        {
+            distanceToGround = player.transform.position.y - hit.point.y;
+            if (grounded && (distanceToGround > spriteToBottomDist + 0.2f))
+                grounded = false;
+            if (!grounded && (distanceToGround < spriteToBottomDist + 0.2f))
+                grounded = true;
+        }
+        else
+        {
+            grounded = false;
+            distanceToGround = 5;
+        }
+
+        anim.SetBool("Grounded", grounded);
 
         //if(anim.GetBool("Running") == false)
         //	player.position += 2.5f * Time.deltaTime * Vector3.left;
-        if (!grounded) {
-			if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
-				player.position += 5f * Time.deltaTime * Vector3.down;
-			else
-				player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
-			
+        if (!grounded)
+        {
+            if (5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+                player.position += 5f * Time.deltaTime * Vector3.down;
+            else
+                player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
+
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("FastFall"))
-				if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
-					player.position += 5f * Time.deltaTime * Vector3.down;
-				else
-					player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
+                if (5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+                    player.position += 5f * Time.deltaTime * Vector3.down;
+                else
+                    player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
         }
 
-	}
+    }
 
     public void effectQuestion()
     {
@@ -91,7 +99,8 @@ public class PlayerController2 : MonoBehaviour {
 
     private float _frameCount;
     private bool _airborn;
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         _frameCount++;
         if (_frameCount % 10 == 0) // TODO: von animation frame abhängig machen
             audioManager.PlayPitchRandom("step", 0.002f);
@@ -104,9 +113,11 @@ public class PlayerController2 : MonoBehaviour {
 		if(h < 0)
 			h = -moveSpeed;*/
 
-        if (grounded) {
+        if (grounded)
+        {
             Jumped = DoubleJump = false;
-            if (_airborn) {
+            if (_airborn)
+            {
                 audioManager.PlayPitchRandom("jump_landing", 0.05f);
             }
             _airborn = false;
@@ -115,23 +126,28 @@ public class PlayerController2 : MonoBehaviour {
         if (Jumped)
             h = h / 2;
 
-        if (Input.GetAxisRaw("Vertical") == 0) {
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
             InJump = false;
         }
-		if ((Input.GetAxisRaw("Vertical") == 1 && !InJump)||Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
+		if ((Input.GetAxisRaw("Vertical") == 1 && !InJump)||Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) 
+		{
             _airborn = true;
             InJump = true;
 
             if (DoubleJump)
                 movement = new Vector2(h, 0);
-            else if (Jumped) {
+            else if (Jumped)
+            {
                 DoubleJump = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump_double", 0.005f);
 
-				rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 movement = new Vector2(h, 16);
-            } else {
+            }
+            else
+            {
                 Jumped = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump", 0.005f);
@@ -139,7 +155,8 @@ public class PlayerController2 : MonoBehaviour {
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 12);
             }
-        } else movement = new Vector2(h, 0);
+        }
+        else movement = new Vector2(h, 0);
         rb2d.AddForce(movement, ForceMode2D.Impulse);
 
         /*
@@ -156,39 +173,49 @@ public class PlayerController2 : MonoBehaviour {
         else if (h == 0 && !facingRight)
             Flip();
 
-        if (h == 0) {
+        if (h == 0)
+        {
             anim.SetBool("Running", false);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-        } else {
+        }
+        else
+        {
             anim.SetBool("Running", true);
         }
     }
 
 
-	public void effectShield()
+    public void effectShield()
     {
         StartCoroutine(shielder());
     }
 
-    IEnumerator shielder() {
+    IEnumerator shielder()
+    {
         shield.SetActive(true);
+        shieldActive = true;
+
         audioManager.Play("shield_start");
         audioManager.Play("shield_loop").SetScheduledEndTime(4);
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
+        shieldActive = false;
     }
 
-    IEnumerator questioner() {
+    IEnumerator questioner()
+    {
         question.SetActive(true);
         yield return new WaitForSecondsRealtime(4);
         question.SetActive(false);
     }
 
 
-    IEnumerator shouter() {
+    IEnumerator shouter()
+    {
         shout.SetActive(true);
         audioManager.PlayInSequencePitchRandom("player_shout", 3);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++)
+        {
             shout.SetActive(false);
             yield return new WaitForSecondsRealtime(0.1f);
             shout.SetActive(true);
@@ -197,7 +224,8 @@ public class PlayerController2 : MonoBehaviour {
         shout.SetActive(false);
     }
 
-    void Flip() {
+    void Flip()
+    {
         facingRight = !facingRight;
         Vector3 theScale = player.transform.localScale;
         theScale.x *= -1;
