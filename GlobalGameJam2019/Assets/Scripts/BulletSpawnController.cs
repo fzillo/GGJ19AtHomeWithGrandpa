@@ -41,7 +41,7 @@ public class BulletSpawnController : MonoBehaviour
         {
             SpawnRandomWaveFromParametersUsingPrefab(spinBulletPrefab);
         }
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             SpawnRandomWaveFromParametersUsingPrefab(zigzagBulletPrefab);
         }
