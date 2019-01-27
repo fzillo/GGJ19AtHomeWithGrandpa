@@ -15,6 +15,12 @@ public class ConversationController : MonoBehaviour
 
     private void someFunc(){}
     private List<Skill> availableSkills = new List<Skill> {
+        // TODO: animationen:
+        /*
+        - shouting
+        - shield
+        - question thing (either speech bubble or facial expression) 
+         */
         new Skill("Gegenbeleidigung",-1,1,"", 0f),
         new Skill("Weggehen",-1,0,"",0f),
         new Skill("Distance",0,1,"",0.5f),
@@ -43,6 +49,8 @@ public class ConversationController : MonoBehaviour
     {
         // TODO: call the effect here
         Debug.Log("skill called "+skill.name);
+        removeSkill(skill);
+        removeSkillButton(skill);
     }
     void spawnNewSkillButton(Skill skill)
     {
@@ -76,15 +84,16 @@ public class ConversationController : MonoBehaviour
     {
         for(int i = 0; i < currentSkills.Length; i++)
         {
-            Debug.Log("skill "+skill.name+" was removed");
-            if (currentSkills[i] == skill) currentSkills[i] = null;
-            return;
+            if (currentSkills[i] == skill) 
+            {
+                currentSkills[i] = null;
+                Debug.Log("skill "+skill.name+" was removed");
+            }
         }
     }
 
     void Update()
     {
-        Debug.Log("update");
         if(PlayerController.instance != null) player = PlayerController.instance;
 
         // set next skill
@@ -121,7 +130,8 @@ public class ConversationController : MonoBehaviour
         {
             if(child.GetComponent<SkillButton>().skill ==skill)
             {
-                child.GetComponent<SkillButton>().setAge(0.5);
+                var x = ((Time.time - skill.startedTime)-(skill.timeUntilDisappearSec * 0.5f)) / (skill.timeUntilDisappearSec * 0.5f);
+                child.GetComponent<SkillButton>().setAge(x);
             }
         }
     }

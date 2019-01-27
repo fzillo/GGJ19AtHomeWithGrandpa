@@ -30,13 +30,13 @@ public class PlayerController2 : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down,2, 1 << LayerMask.NameToLayer("Ground"));
 
 		if(hit.collider != null)
-			grounded = (player.transform.position.y - hit.point.y < 1) &&
-				(player.transform.position.y - hit.point.y > 0.2) ;
+			grounded = (player.transform.position.y - hit.point.y < 2.5) &&
+				(player.transform.position.y - hit.point.y > 0.4) ;
 		else
 			grounded = false;
 
-		if(anim.GetBool("Running") == false)
-			player.position += 2.5f * Time.deltaTime * Vector3.left;
+		//if(anim.GetBool("Running") == false)
+		//	player.position += 2.5f * Time.deltaTime * Vector3.left;
 		if(!grounded)
 		{
 			player.position += 5f * Time.deltaTime * Vector3.down;

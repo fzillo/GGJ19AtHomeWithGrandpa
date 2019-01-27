@@ -22,8 +22,9 @@ public class SkillButton : MonoBehaviour
         button.onClick.AddListener(func);
     }
 
-    internal void setAge(double v)
+    public void setAge(float v)
     {
-        GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,0.5f);
+        Debug.Log(v);
+        GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,v);
     }
 }
