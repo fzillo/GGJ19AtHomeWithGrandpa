@@ -11,7 +11,8 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         audioM = FindObjectOfType<AudioManager>();
-        audioM.Play("PloppHigh");
+        if (audioM != null)
+            audioM.Play("PloppHigh");
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -20,8 +21,8 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-
-        audioM.Play("PloppLow");
+        if (audioM != null)
+            audioM.Play("PloppLow");
         Destroy(gameObject);
         Debug.Log(coll);
     }
