@@ -44,9 +44,9 @@ public class Lifemeter : MonoBehaviour
     {
         Debug.Log("Increase Life by: " + value);
         currentLiveValue += value;
-        if (currentLiveValue > 6)
+        if (currentLiveValue > lifes.Count)
         {
-            currentLiveValue = 6;
+            currentLiveValue = lifes.Count;
         }
         EvaluateLife();
         return currentLiveValue;
