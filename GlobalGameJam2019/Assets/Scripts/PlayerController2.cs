@@ -22,6 +22,7 @@ public class PlayerController2 : MonoBehaviour {
 
     public GameObject shield;
     public GameObject shout;
+    public GameObject question;
 
     // Use this for initialization
     void Awake() {
