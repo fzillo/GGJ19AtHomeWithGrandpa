@@ -101,7 +101,7 @@ public class ConversationController : MonoBehaviour
 
     void Update()
     {
-        if(PlayerController.instance != null) player = PlayerController.instance;
+        if(PlayerController.instance != null) player = PlayerController2.instance;
 
         // set next skill
         for(int i = 0; i < currentSkills.Length; i++)

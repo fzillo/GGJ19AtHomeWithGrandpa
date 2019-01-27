@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController2 : MonoBehaviour
 {
+	public static PlayerController2 instance;
 	[HideInInspector] public bool facingRight = true;
 	public float moveSpeed = 0.2f;
 	public Vector2 movement;
@@ -23,6 +24,7 @@ public class PlayerController2 : MonoBehaviour
 	// Use this for initialization
 	void Awake () 
 	{
+		PlayerController2.instance = this;
 		anim = player.GetComponent<Animator>();
 		rb2d = player.GetComponent<Rigidbody2D>();
 	}
@@ -57,6 +59,11 @@ public class PlayerController2 : MonoBehaviour
 	public void effectShout()
 	{
 		StartCoroutine(shouter());
+	}
+	public float getAngryScore()
+	{
+		// TODO: retrieve it!!!!
+		return 0.5f;
 	}
  
 
