@@ -121,15 +121,15 @@ public class ConversationController : MonoBehaviour
 
     void Update()
     {
-        if (currentSkills[0] != null &&  Input.GetKeyDown(KeyCode.A))
+		if (currentSkills[0] != null &&  (Input.GetKeyDown(KeyCode.Y) || Input.GetKeyDown("joystick button 3")))
         {
             callSkill(currentSkills[0]);
         }
-        if (currentSkills[1] != null &&  Input.GetKeyDown(KeyCode.B))
+		if (currentSkills[1] != null &&  (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown("joystick button 1")))
         {
             callSkill(currentSkills[1]);
         }
-        if (currentSkills[2] != null &&  Input.GetKeyDown(KeyCode.X))
+		if (currentSkills[2] != null &&  (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown("joystick button 2")))
         {
             callSkill(currentSkills[2]);
         }
