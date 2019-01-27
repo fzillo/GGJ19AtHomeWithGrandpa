@@ -7,6 +7,7 @@ public class BulletSpawnController : MonoBehaviour
     public Transform straightBulletPrefab;
     public Transform spinBulletPrefab;
     public Transform zigzagBulletPrefab;
+    public Transform heartBulletPrefab;
     public List<Transform> spawnerList;
     public List<Wave> wavePatterns;
 
@@ -50,6 +51,10 @@ public class BulletSpawnController : MonoBehaviour
         }
     }
 
+    public void spawnHearts()
+    {
+        SpawnRandomWaveFromParametersUsingPrefab(zigzagBulletPrefab);
+    }
     IEnumerator SpawnWave(Wave w)
     {
         Debug.Log("SpawnWave: Prefab" + w.bulletPrefab + " nSpawns " + w.spawnindexArray.Length + " numberBulletsPerSpawn " + w.numberBulletsPerSpawn

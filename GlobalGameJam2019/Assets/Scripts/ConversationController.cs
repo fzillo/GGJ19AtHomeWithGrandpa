@@ -183,10 +183,10 @@ public class ConversationController : MonoBehaviour
         while(true)
         {
             var skill =  availableSkills[UnityEngine.Random.Range(0,availableSkills.Count)];
-            if(skill.neededCalmness < 1f - playerAngryLevel)
+            if(skill.neededCalmness < 1f - playerAngryLevel || true)
             {
                 var newSkill = skill.Clone();
-                newSkill.timeUntilDisappearSec = 5f;
+                newSkill.timeUntilDisappearSec = 10f;
                 return newSkill;
             }
         }
@@ -197,7 +197,7 @@ public class ConversationController : MonoBehaviour
         while(true)
         {
             var attk =  availableAttacks[UnityEngine.Random.Range(0,availableAttacks.Count)];
-            if(attk.neededAngryNes < 1f - enemyAngryLevel)
+            if(attk.neededAngryNes < 1f - enemyAngryLevel || true)
             {
                 var newAttk = attk.Clone();
                 return newAttk;
