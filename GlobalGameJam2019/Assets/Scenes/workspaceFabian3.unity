@@ -152,7 +152,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 76203076}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b8228639408bfca419180c52155efb11, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1158,6 +1158,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460593, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810e5bb9993c2964f8708be731ba79b7, type: 3}
 --- !u!1001 &1666514543
@@ -1812,5 +1817,20 @@ PrefabInstance:
       propertyPath: liveMeterInstance
       value: 
       objectReference: {fileID: 2098238127}
+    - target: {fileID: 150405212272397580, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 150405212272397580, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 150405212272397580, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe1e8bd497cd3e4d8904011d33b534f, type: 3}

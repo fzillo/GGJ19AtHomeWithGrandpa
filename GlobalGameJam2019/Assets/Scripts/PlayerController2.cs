@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
-{
+public class PlayerController2 : MonoBehaviour {
     public static PlayerController2 instance;
     [HideInInspector] public bool facingRight = true;
     public float moveSpeed = 0.2f;
@@ -24,8 +23,7 @@ public class PlayerController2 : MonoBehaviour
     public GameObject shout;
 
     // Use this for initialization
-    void Awake()
-    {
+    void Awake() {
         instance = this;
         anim = player.GetComponent<Animator>();
         rb2d = player.GetComponent<Rigidbody2D>();
@@ -36,8 +34,7 @@ public class PlayerController2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 2, 1 << LayerMask.NameToLayer("Ground"));
 
         if (hit.collider != null)
@@ -48,60 +45,22 @@ public class PlayerController2 : MonoBehaviour
 
         //if(anim.GetBool("Running") == false)
         //	player.position += 2.5f * Time.deltaTime * Vector3.left;
-        if (!grounded)
-        {
+        if (!grounded) {
             player.position += 5f * Time.deltaTime * Vector3.down;
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("FastFall"))
                 player.position += 5f * Time.deltaTime * Vector3.down;
         }
 
-        if (anim.GetBool("Grounded") == false && grounded)
-            audioManager.PlayPitchRandom("jump_landing", 0.05f);
-
         anim.SetBool("Grounded", grounded);
     }
 
-    public void effectShield()
-    {
-        StartCoroutine(shielder());
-    }
-
-    public void effectShout()
-    {
-        StartCoroutine(shouter());
-    }
-    public float getAngryScore()
-    {
-        // TODO: retrieve it!!!!
-        return 0.5f;
-    }
-
-
-
-    IEnumerator shielder()
-    {
-        shield.SetActive(true);
-        yield return new WaitForSecondsRealtime(4);
-        shield.SetActive(false);
-    }
-
-    IEnumerator shouter()
-    {
-        shout.SetActive(true);
-		for(int i = 0; i < 10; i++)
-		{
-			shout.SetActive(false);
-        	yield return new WaitForSecondsRealtime(0.1f);
-			shout.SetActive(true);
-        	yield return new WaitForSecondsRealtime(0.1f);
-		}
-        shout.SetActive(false);
-    }
 
     private float _frameCount;
-    void FixedUpdate()
-    {
+    private bool _airborn;
+    void FixedUpdate() {
         _frameCount++;
+        if (_frameCount % 10 == 0) // TODO: von animation frame abhängig machen
+            audioManager.PlayPitchRandom("step", 0.2f);
 
         float h = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(h));
@@ -111,29 +70,34 @@ public class PlayerController2 : MonoBehaviour
 		if(h < 0)
 			h = -moveSpeed;*/
 
-        if (grounded)
+        if (grounded) {
             Jumped = DoubleJump = false;
+            if (_airborn) {
+                audioManager.PlayPitchRandom("jump_landing", 0.05f);
+            }
+            _airborn = false;
+        }
+
         if (Jumped)
             h = h / 2;
 
-        if (Input.GetAxisRaw("Vertical") == 0)
+        if (Input.GetAxisRaw("Vertical") == 0) {
             InJump = false;
-        if (Input.GetAxisRaw("Vertical") == 1 && !InJump)
-        {
+        }
+        if (Input.GetAxisRaw("Vertical") == 1 && !InJump) {
+            _airborn = true;
             InJump = true;
+
             if (DoubleJump)
                 movement = new Vector2(h, 0);
-            else if (Jumped)
-            {
+            else if (Jumped) {
                 DoubleJump = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump_double", 0.05f);
 
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 15);
-            }
-            else
-            {
+            } else {
                 Jumped = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump", 0.05f);
@@ -141,8 +105,7 @@ public class PlayerController2 : MonoBehaviour
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 14);
             }
-        }
-        else movement = new Vector2(h, 0);
+        } else movement = new Vector2(h, 0);
         rb2d.AddForce(movement, ForceMode2D.Impulse);
 
         /*
@@ -164,20 +127,46 @@ public class PlayerController2 : MonoBehaviour
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
         } else {
             anim.SetBool("Running", true);
-
-            if (_frameCount % 20 == 0)
-                audioManager.PlayPitchRandom("step", 0.2f);
         }
     }
 
+    public void effectShield() {
+        StartCoroutine(shielder());
+    }
 
-    void Flip()
-    {
+    public void effectShout() {
+        StartCoroutine(shouter());
+    }
+    public float getAngryScore() {
+        // TODO: retrieve it!!!!
+        return 0.5f;
+    }
+
+
+
+    IEnumerator shielder() {
+        shield.SetActive(true);
+        yield return new WaitForSecondsRealtime(4);
+        shield.SetActive(false);
+    }
+
+    IEnumerator shouter() {
+        shout.SetActive(true);
+        for (int i = 0; i < 10; i++) {
+            shout.SetActive(false);
+            yield return new WaitForSecondsRealtime(0.1f);
+            shout.SetActive(true);
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        shout.SetActive(false);
+    }
+
+    void Flip() {
         facingRight = !facingRight;
         Vector3 theScale = player.transform.localScale;
         theScale.x *= -1;
         player.transform.localScale = theScale;
 
-        audioManager.PlayPitch("step", -1f);
+        audioManager.PlayPitch("step", 0.5f);
     }
 }
