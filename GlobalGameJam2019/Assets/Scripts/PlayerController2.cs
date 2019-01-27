@@ -29,8 +29,10 @@ public class PlayerController2 : MonoBehaviour
         instance = this;
         anim = player.GetComponent<Animator>();
         rb2d = player.GetComponent<Rigidbody2D>();
+    }
 
-        audioManager = GetComponentInParent<AudioManager>();
+    void Start() {
+        audioManager = AudioManager.instance;
     }
 
     // Update is called once per frame
