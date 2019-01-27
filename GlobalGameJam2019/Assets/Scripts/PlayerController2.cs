@@ -36,12 +36,26 @@ public class PlayerController2 : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+		
+		float distanceToGround = spriteToBottomDist;
+
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 5, 1 << LayerMask.NameToLayer("Ground"));
-		float distanceToGround = player.transform.position.y - hit.point.y;
+		
         if (hit.collider != null)
-			grounded = (distanceToGround < spriteToBottomDist+0.2f) && (distanceToGround > spriteToBottomDist);
-        else
-            grounded = false;
+		{
+			distanceToGround = player.transform.position.y - hit.point.y;
+			if(grounded && (distanceToGround > spriteToBottomDist + 0.2f))
+				grounded = false;
+			if(!grounded && (distanceToGround < spriteToBottomDist + 0.2f))
+				grounded = true;
+		}
+       	else
+		{
+			grounded = false;
+			distanceToGround = 5;
+		}
+
+		anim.SetBool("Grounded", grounded);
 
         //if(anim.GetBool("Running") == false)
         //	player.position += 2.5f * Time.deltaTime * Vector3.left;
@@ -67,7 +81,6 @@ public class PlayerController2 : MonoBehaviour {
     public float getAngryScore()
     {
         return lifemeterInstance.getCurrentLife();
-        anim.SetBool("Grounded", grounded);
     }
 
 

@@ -302,6 +302,7 @@ MonoBehaviour:
   facingRight: 1
   moveSpeed: 0.2
   movement: {x: 0, y: 0}
+  spriteToBottomDist: 2
   player: {fileID: 7916857250866558651}
   lifemeterInstance: {fileID: 0}
   audioManager: {fileID: 0}
