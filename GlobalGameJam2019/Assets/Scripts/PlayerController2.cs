@@ -118,7 +118,7 @@ public class PlayerController2 : MonoBehaviour {
         if (Input.GetAxisRaw("Vertical") == 0) {
             InJump = false;
         }
-		if ((Input.GetAxisRaw("Vertical") == 1 && !InJump)||Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("joystick button 0")) {
+		if ((Input.GetAxisRaw("Vertical") == 1 && !InJump)||Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) {
             _airborn = true;
             InJump = true;
 

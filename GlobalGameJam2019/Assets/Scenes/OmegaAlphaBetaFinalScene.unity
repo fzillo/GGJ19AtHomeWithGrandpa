@@ -260,7 +260,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.35, y: 1.62}
+    oldSize: {x: 5.35, y: 1.17}
     newSize: {x: 5.35, y: 1.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1242,7 +1242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &817113172
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1268188307
 Transform:
   m_ObjectHideFlags: 0
@@ -1890,6 +1890,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lifemeter_Opponent
       objectReference: {fileID: 0}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 94bda7a0816c2405f878614af6bf3274,
+        type: 3}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 19d73100bc51e411da330affd18d51f6,
+        type: 3}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: cdbadb901587e4ef3b8d83681aeb2795,
+        type: 3}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 67fb2cf3a912b41f595caa96b6b03308,
+        type: 3}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ea3a955e40009470787cfe49e14132c2,
+        type: 3}
+    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
+        type: 3}
+      propertyPath: lifes.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b97925a720384a3fafaab3541c12593,
+        type: 3}
     - target: {fileID: 2980606753307640824, guid: 1368399a1e4f3314d9ae996482bf4680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1961,42 +1997,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 1b97925a720384a3fafaab3541c12593,
         type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: 94bda7a0816c2405f878614af6bf3274,
-        type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 19d73100bc51e411da330affd18d51f6,
-        type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: cdbadb901587e4ef3b8d83681aeb2795,
-        type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 67fb2cf3a912b41f595caa96b6b03308,
-        type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: ea3a955e40009470787cfe49e14132c2,
-        type: 3}
-    - target: {fileID: 2980606753307640825, guid: 1368399a1e4f3314d9ae996482bf4680,
-        type: 3}
-      propertyPath: lifes.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 1b97925a720384a3fafaab3541c12593,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1368399a1e4f3314d9ae996482bf4680, type: 3}
 --- !u!1 &1940334081
@@ -2048,7 +2048,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.35, y: 1.62}
+    oldSize: {x: 5.35, y: 1.17}
     newSize: {x: 5.35, y: 1.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2355,8 +2355,37 @@ PrefabInstance:
       propertyPath: enemyLifemeter
       value: 
       objectReference: {fileID: 1037522350}
-    - target: {fileID: 7591285925595650695, guid: ace358abd32884e7a92baec1d1c9b0f2,
+    - target: {fileID: 7591285925595650694, guid: ace358abd32884e7a92baec1d1c9b0f2,
         type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591285925595650694, guid: ace358abd32884e7a92baec1d1c9b0f2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -281.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764608, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764609, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764609, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764609, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764609, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880764610, guid: ace358abd32884e7a92baec1d1c9b0f2, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 5593941719c35ae45a2ad32e6e30d1e1,
