@@ -11,6 +11,7 @@ public class PlayerController2 : MonoBehaviour
 
     public Transform player;
     public Lifemeter lifemeterInstance;
+    public AudioManager audioManager;
 
     public bool grounded = false;
     private Animator anim;
@@ -28,6 +29,7 @@ public class PlayerController2 : MonoBehaviour
         instance = this;
         anim = player.GetComponent<Animator>();
         rb2d = player.GetComponent<Rigidbody2D>();
+        audioManager = player.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,10 @@ public class PlayerController2 : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("FastFall"))
                 player.position += 5f * Time.deltaTime * Vector3.down;
         }
+
+        if (anim.GetBool("Grounded") == false && grounded)
+            audioManager.PlayPitchRandom("jump_landing", 0.05f);
+
         anim.SetBool("Grounded", grounded);
     }
 
@@ -84,7 +90,7 @@ public class PlayerController2 : MonoBehaviour
     IEnumerator shouter()
     {
         //Rotate 90 deg
-        shield.SetActive(true);
+        shout.SetActive(true);
 
 		for(int i = 0; i < 10; i++)
 		{
@@ -95,11 +101,14 @@ public class PlayerController2 : MonoBehaviour
 		}
 
         //Rotate 40 deg
-        shield.SetActive(false);
+        shout.SetActive(false);
     }
 
+    private float _frameCount;
     void FixedUpdate()
     {
+        _frameCount++;
+
         float h = Input.GetAxis("Horizontal");
         anim.SetFloat("Speed", Mathf.Abs(h));
         h = Mathf.Clamp(h, -moveSpeed, moveSpeed);
@@ -124,6 +133,8 @@ public class PlayerController2 : MonoBehaviour
             {
                 DoubleJump = true;
                 anim.SetTrigger("Jump");
+                audioManager.PlayPitchRandom("jump_double", 0.05f);
+
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 15);
             }
@@ -131,6 +142,8 @@ public class PlayerController2 : MonoBehaviour
             {
                 Jumped = true;
                 anim.SetTrigger("Jump");
+                audioManager.PlayPitchRandom("jump", 0.05f);
+
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 14);
             }
@@ -152,13 +165,15 @@ public class PlayerController2 : MonoBehaviour
         else if (h == 0 && !facingRight)
             Flip();
 
-        if (h == 0)
-        {
+        if (h == 0) {
             anim.SetBool("Running", false);
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-        }
-        else
+        } else {
             anim.SetBool("Running", true);
+
+            if (_frameCount % 20 == 0)
+                audioManager.PlayPitchRandom("step", 0.2f);
+        }
     }
 
 
@@ -168,5 +183,7 @@ public class PlayerController2 : MonoBehaviour
         Vector3 theScale = player.transform.localScale;
         theScale.x *= -1;
         player.transform.localScale = theScale;
+
+        audioManager.PlayPitch("step", -1f);
     }
 }
