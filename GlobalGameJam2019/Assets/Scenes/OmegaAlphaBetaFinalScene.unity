@@ -199,6 +199,11 @@ PrefabInstance:
       propertyPath: FPS
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3163678032638494241, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3791663600641202728, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
         type: 3}
       propertyPath: m_IsActive
