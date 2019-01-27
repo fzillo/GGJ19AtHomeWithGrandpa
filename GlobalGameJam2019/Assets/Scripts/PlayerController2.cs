@@ -22,6 +22,7 @@ public class PlayerController2 : MonoBehaviour {
 
     public GameObject shield;
     public GameObject shout;
+    public GameObject question;
 
     // Use this for initialization
     void Awake() {
@@ -74,6 +75,10 @@ public class PlayerController2 : MonoBehaviour {
 
 	}
 
+    public void effectQuestion()
+    {
+        StartCoroutine(questioner());
+    }
     public void effectShout()
     {
         StartCoroutine(shouter());
@@ -167,9 +172,18 @@ public class PlayerController2 : MonoBehaviour {
 
     IEnumerator shielder() {
         shield.SetActive(true);
+        audioManager.Play("shield_start");
+        audioManager.Play("shield_loop").SetScheduledEndTime(4);
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
     }
+
+    IEnumerator questioner() {
+        question.SetActive(true);
+        yield return new WaitForSecondsRealtime(4);
+        question.SetActive(false);
+    }
+
 
     IEnumerator shouter() {
         shout.SetActive(true);

@@ -15,7 +15,7 @@ public class GenericSpriteAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time-lastSwitch > FPS)
+        if(Time.time-lastSwitch > FPS/60f)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[index%sprites.Count];
             index++;

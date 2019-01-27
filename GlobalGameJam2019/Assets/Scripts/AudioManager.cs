@@ -42,22 +42,25 @@ public class AudioManager : MonoBehaviour {
         return sound;
     }
 
-    public void Play(string name) {
+    public AudioSource Play(string name) {
         var sound = GetSound(name);
         sound.source.Play();
+        return sound.source;
     }
 
-    public void PlayPitch(string name, float pitch) {
+    public AudioSource PlayPitch(string name, float pitch) {
         var sound = GetSound(name);
         sound.source.pitch = pitch;
         sound.source.Play();
+        return sound.source;
     }
 
-    public void PlayPitchRandom(string name, float maxDeviation = 2.0f) {
+    public AudioSource PlayPitchRandom(string name, float maxDeviation = 2.0f) {
         var sound = GetSound(name);
         float randPitch = UnityEngine.Random.Range(sound.pitch - maxDeviation, sound.pitch + maxDeviation);
         sound.source.pitch = randPitch;
         sound.source.Play();
+        return sound.source;
     }
 
     public void PlaySequence(params string[] names) {
