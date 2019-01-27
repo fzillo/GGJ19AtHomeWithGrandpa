@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class ConversationController : MonoBehaviour
 {
     public static ConversationController instance;
-    private PlayerController player;
+    private PlayerController2 player;
     public GameObject enemy;
 
     public GameObject buttonContainer;
@@ -49,6 +49,13 @@ public class ConversationController : MonoBehaviour
     {
         // TODO: call the effect here
         Debug.Log("skill called "+skill.name);
+        player.effectShield();
+        // switch(skill.name)
+        // {
+        //     case "":
+        //         pass;
+        //     default:
+        // }
         removeSkill(skill);
         removeSkillButton(skill);
     }

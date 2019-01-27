@@ -17,6 +17,9 @@ public class PlayerController2 : MonoBehaviour
 	private bool Jumped = false;
 	private bool DoubleJump = false;
 
+	public GameObject shield;
+	public GameObject shout;
+
 	// Use this for initialization
 	void Awake () 
 	{
@@ -48,14 +51,39 @@ public class PlayerController2 : MonoBehaviour
 
 	public void effectShield()
 	{
-
+		StartCoroutine(shielder());
 	}
 
 	public void effectShout()
 	{
-		
+		StartCoroutine(shouter());
+	}
+ 
+
+
+	IEnumerator shielder()
+	{
+		//Rotate 90 deg
+		shield.active = true;
+
+		//Wait for 4 seconds
+		yield return new WaitForSecondsRealtime(4);
+
+		//Rotate 40 deg
+		shield.active = false;
 	}
 
+	IEnumerator shouter()
+	{
+		//Rotate 90 deg
+		shout.active = true;
+
+		//Wait for 4 seconds
+		yield return new WaitForSecondsRealtime(4);
+
+		//Rotate 40 deg
+		shout.active = false;
+	}
 
 	void FixedUpdate()
 	{
