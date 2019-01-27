@@ -98,6 +98,8 @@ MonoBehaviour:
   forwardBackwardModifier: 1
   speed: 7
   timeLingering: 1
+  yMaxHeight: 4
+  yMinHeight: 1
   counter: 0
   active: 0
 --- !u!61 &2724215117369336523
