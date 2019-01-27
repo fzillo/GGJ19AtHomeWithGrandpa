@@ -31,7 +31,6 @@ public class AudioManager : MonoBehaviour {
         }
     }
     void Start() {
-        PlaySequence("intro", "Theme");
     }
 
     private Sound GetSound(string name) {

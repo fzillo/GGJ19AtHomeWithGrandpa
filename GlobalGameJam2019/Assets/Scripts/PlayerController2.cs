@@ -33,6 +33,7 @@ public class PlayerController2 : MonoBehaviour {
 
     void Start() {
         audioManager = AudioManager.instance;
+        audioManager.PlaySequence("intro", "Theme");
     }
 
     // Update is called once per frame
