@@ -7,6 +7,7 @@ public class PlayerController2 : MonoBehaviour {
     [HideInInspector] public bool facingRight = true;
     public float moveSpeed = 0.2f;
     public Vector2 movement;
+	public float spriteToBottomDist = 2.0f;
 
     public Transform player;
     public Lifemeter lifemeterInstance;
@@ -35,20 +36,26 @@ public class PlayerController2 : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 2, 1 << LayerMask.NameToLayer("Ground"));
-
+        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 5, 1 << LayerMask.NameToLayer("Ground"));
+		float distanceToGround = player.transform.position.y - hit.point.y;
         if (hit.collider != null)
-            grounded = (player.transform.position.y - hit.point.y < 2.5) &&
-                (player.transform.position.y - hit.point.y > 0.4);
+			grounded = (distanceToGround < spriteToBottomDist+0.2f) && (distanceToGround > spriteToBottomDist);
         else
             grounded = false;
 
         //if(anim.GetBool("Running") == false)
         //	player.position += 2.5f * Time.deltaTime * Vector3.left;
         if (!grounded) {
-            player.position += 5f * Time.deltaTime * Vector3.down;
+			if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+				player.position += 5f * Time.deltaTime * Vector3.down;
+			else
+				player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
+			
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("FastFall"))
-                player.position += 5f * Time.deltaTime * Vector3.down;
+				if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+					player.position += 5f * Time.deltaTime * Vector3.down;
+				else
+					player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
         }
 
 	}
@@ -69,7 +76,7 @@ public class PlayerController2 : MonoBehaviour {
     void FixedUpdate() {
         _frameCount++;
         if (_frameCount % 10 == 0) // TODO: von animation frame abhängig machen
-            audioManager.PlayPitchRandom("step", 0.2f);
+            audioManager.PlayPitchRandom("step", 0.002f);
 
         float h = Input.GetAxis("Horizontal");
         //anim.SetFloat("Speed", Mathf.Abs(h));
@@ -102,17 +109,17 @@ public class PlayerController2 : MonoBehaviour {
             else if (Jumped) {
                 DoubleJump = true;
                 anim.SetTrigger("Jump");
-                audioManager.PlayPitchRandom("jump_double", 0.05f);
+                audioManager.PlayPitchRandom("jump_double", 0.005f);
 
                 //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 15);
+                movement = new Vector2(h, 10);
             } else {
                 Jumped = true;
                 anim.SetTrigger("Jump");
-                audioManager.PlayPitchRandom("jump", 0.05f);
+                audioManager.PlayPitchRandom("jump", 0.005f);
 
                 //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 14);
+                movement = new Vector2(h, 10);
             }
         } else movement = new Vector2(h, 0);
         rb2d.AddForce(movement, ForceMode2D.Impulse);
@@ -147,14 +154,13 @@ public class PlayerController2 : MonoBehaviour {
 
     IEnumerator shielder() {
         shield.SetActive(true);
-        audioManager.Play("shield_start");
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
     }
 
     IEnumerator shouter() {
         shout.SetActive(true);
-        audioManager.Play("player_shout");
+        audioManager.PlayInSequencePitchRandom("player_shout", 3);
         for (int i = 0; i < 10; i++) {
             shout.SetActive(false);
             yield return new WaitForSecondsRealtime(0.1f);
