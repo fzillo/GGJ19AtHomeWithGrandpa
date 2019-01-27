@@ -63,7 +63,7 @@ public class PlayerController2 : MonoBehaviour {
             audioManager.PlayPitchRandom("step", 0.2f);
 
         float h = Input.GetAxis("Horizontal");
-        anim.SetFloat("Speed", Mathf.Abs(h));
+        //anim.SetFloat("Speed", Mathf.Abs(h));
         h = Mathf.Clamp(h, -moveSpeed, moveSpeed);
         /*if(h > 0)
 			h = moveSpeed;
@@ -146,12 +146,14 @@ public class PlayerController2 : MonoBehaviour {
 
     IEnumerator shielder() {
         shield.SetActive(true);
+        audioManager.Play("shield_start");
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
     }
 
     IEnumerator shouter() {
         shout.SetActive(true);
+        audioManager.Play("player_shout");
         for (int i = 0; i < 10; i++) {
             shout.SetActive(false);
             yield return new WaitForSecondsRealtime(0.1f);

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Theme
-    clip: {fileID: 8300000, guid: 5083ded50c0a1b440b64721fd2f69d6b, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 2e2ad1ce6739d044a8376bf77301de69, type: 3}
+    volume: 0.412
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -155,6 +155,12 @@ MonoBehaviour:
   - name: Wind
     clip: {fileID: 8300000, guid: 5083ded50c0a1b440b64721fd2f69d6b, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: intro
+    clip: {fileID: 8300000, guid: 68be78ed2c3b0074089c35be2a96b7ed, type: 3}
+    volume: 0.417
     pitch: 1
     loop: 0
     source: {fileID: 0}
