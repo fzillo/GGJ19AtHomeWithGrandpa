@@ -21,13 +21,13 @@ public class ConversationController : MonoBehaviour
         - shield
         - question thing (either speech bubble or facial expression) 
          */
-        new Skill("Gegenbeleidigung",-1,1,"", 0f),
-        new Skill("Weggehen",-1,0,"",0f),
-        new Skill("Distance",0,1,"",0.5f),
-        new Skill("Entschuldigen",1,1,"",0.7f),
-        new Skill("Question",1,1,"",0.7f),
-        new Skill("MeinungGeigen",0,1,"",0.2f),
-        new Skill("PeriodLine",-1,0,"",0f),
+        new Skill("Insult back",-1,1,"", 0f),
+        new Skill("Go Away",-1,0,"",0f),
+        new Skill("Keep Distance",0,1,"",0.5f),
+        new Skill("I'm sorry",1,1,"",0.7f),
+        new Skill("Why?",1,1,"",0.7f),
+        // new Skill("MeinungGeigen",0,1,"",0.2f),
+        // new Skill("PeriodLine",-1,0,"",0f),
     };
 
     // TODO: these need to be sorted
@@ -129,7 +129,7 @@ public class ConversationController : MonoBehaviour
         {
             callSkill(currentSkills[1]);
         }
-        if (currentSkills[2] != null &&  Input.GetKeyDown(KeyCode.X))
+        if (currentSkills[2] != null &&  Input.GetKeyDown(KeyCode.Y))
         {
             callSkill(currentSkills[2]);
         }
