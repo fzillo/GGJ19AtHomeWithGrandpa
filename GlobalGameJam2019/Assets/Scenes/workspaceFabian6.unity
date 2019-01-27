@@ -512,6 +512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9948a939e814150a7e9fa24c6bc5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   bulletSpawnController: {fileID: 2021663527}
   bulletIntervalSeconds: 2
   lastSpawn: 0

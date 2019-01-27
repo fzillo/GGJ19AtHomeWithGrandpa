@@ -329,6 +329,7 @@ MonoBehaviour:
     type: 3}
   zigzagBulletPrefab: {fileID: 6112485014863158467, guid: ab0b1dc22ad6a7240b4e29b99168f5cb,
     type: 3}
+  heartBulletPrefab: {fileID: 0}
   spawnerList:
   - {fileID: 498778364455350605}
   - {fileID: 498778364994018521}
@@ -345,6 +346,14 @@ MonoBehaviour:
   - {fileID: 294976029193188707, guid: a26842575c3090e4fafb69b09b1f5756, type: 3}
   - {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73, type: 3}
   - {fileID: 4264525058261503862, guid: 509e170ea32181d4a95e911830af39b4, type: 3}
+  - {fileID: 3593102746670552385, guid: 0999b8223debed542b238c576d8fa7f7, type: 3}
+  - {fileID: 8622509160335663531, guid: 459dc030c429750418503d814574a0d2, type: 3}
+  - {fileID: 3601867152501209551, guid: 6db9799619942ae48afd2a71f3591b68, type: 3}
+  - {fileID: 6838904287516663294, guid: fdc40182d4066124ba9169e991c3126c, type: 3}
+  - {fileID: 7980983737857553592, guid: f7084104179638f40be79cd0f30464fa, type: 3}
+  - {fileID: 5962114956356627321, guid: aea76faa64350134494657bdd872cde6, type: 3}
+  - {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73, type: 3}
+  - {fileID: 6663342077811340148, guid: cdd66fdfae95c1c4cabceb1c8863a225, type: 3}
   randomWave: {fileID: 4788587899052856267, guid: 7c8a6764b14926e46a5510ca6ca91666,
     type: 3}
   spawnsMin: 1

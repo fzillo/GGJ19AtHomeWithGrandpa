@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boundary
   - Bullet
+  - AudioManager
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
+  - Back
+  - Middle
+  - Front
   - 
   - 
   - 
@@ -42,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3322315067
+    locked: 0
+  - name: Middle
+    uniqueID: 1149868375
+    locked: 0
+  - name: Front
+    uniqueID: 551096853
     locked: 0
