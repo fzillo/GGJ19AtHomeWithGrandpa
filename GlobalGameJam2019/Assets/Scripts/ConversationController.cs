@@ -49,13 +49,21 @@ public class ConversationController : MonoBehaviour
     {
         // TODO: call the effect here
         Debug.Log("skill called "+skill.name);
-        player.effectShield();
-        // switch(skill.name)
-        // {
-        //     case "":
-        //         pass;
-        //     default:
-        // }
+        
+        switch(skill.name)
+        {
+            case "MeinungGeigen":
+            case "Entschuldigen":
+            case "Question":
+                player.effectShield();
+                break;
+            case "Gegenbeleidigung":
+                player.effectShout();
+                break;
+            default:
+                break;
+
+        }
         removeSkill(skill);
         removeSkillButton(skill);
     }
@@ -101,7 +109,7 @@ public class ConversationController : MonoBehaviour
 
     void Update()
     {
-        if(PlayerController.instance != null) player = PlayerController2.instance;
+        if(PlayerController2.instance != null) player = PlayerController2.instance;
 
         // set next skill
         for(int i = 0; i < currentSkills.Length; i++)
