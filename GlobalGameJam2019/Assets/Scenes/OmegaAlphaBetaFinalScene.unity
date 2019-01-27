@@ -199,6 +199,16 @@ PrefabInstance:
       propertyPath: FPS
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3163678032638494241, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791663600641202728, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe1e8bd497cd3e4d8904011d33b534f, type: 3}
 --- !u!1 &76203076
@@ -598,12 +608,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 257248286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9948a939e814150a7e9fa24c6bc5c2, type: 3}
+  m_Script: {fileID: 11500000, guid: b4139804901b248749de47c7b5bd8ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnController: {fileID: 2021663527}
   bulletIntervalSeconds: 2
   lastSpawn: 0
+  enemy: {fileID: 1037522350}
+  player: {fileID: 1388301473}
 --- !u!1 &475232352
 GameObject:
   m_ObjectHideFlags: 0
