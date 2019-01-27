@@ -53,3 +53,9 @@ TagManager:
   - name: Front
     uniqueID: 551096853
     locked: 0
+  - name: Bullets
+    uniqueID: 133150193
+    locked: 0
+  - name: Interface
+    uniqueID: 2361032247
+    locked: 0
