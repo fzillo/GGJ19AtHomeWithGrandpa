@@ -116,6 +116,20 @@ public class ConversationController : MonoBehaviour
 
     void Update()
     {
+        if (currentSkills[0] != null &&  Input.GetKeyDown(KeyCode.A))
+        {
+            callSkill(currentSkills[0]);
+        }
+        if (currentSkills[1] != null &&  Input.GetKeyDown(KeyCode.B))
+        {
+            callSkill(currentSkills[1]);
+        }
+        if (currentSkills[2] != null &&  Input.GetKeyDown(KeyCode.X))
+        {
+            callSkill(currentSkills[2]);
+        }
+        
+
         if(PlayerController2.instance != null) player = PlayerController2.instance;
 
         // set next skill
