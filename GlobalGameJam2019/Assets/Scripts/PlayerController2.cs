@@ -154,6 +154,8 @@ public class PlayerController2 : MonoBehaviour {
 
     IEnumerator shielder() {
         shield.SetActive(true);
+        audioManager.Play("shield_start");
+        audioManager.Play("shield_loop").SetScheduledEndTime(4);
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
     }
