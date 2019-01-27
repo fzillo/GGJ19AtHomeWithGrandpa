@@ -25,7 +25,7 @@ public class PlayerController2 : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        PlayerController2.instance = this;
+        instance = this;
         anim = player.GetComponent<Animator>();
         rb2d = player.GetComponent<Rigidbody2D>();
     }
@@ -72,25 +72,25 @@ public class PlayerController2 : MonoBehaviour
     IEnumerator shielder()
     {
         //Rotate 90 deg
-        shield.active = true;
+        shield.SetActive(true);
 
         //Wait for 4 seconds
         yield return new WaitForSecondsRealtime(4);
 
         //Rotate 40 deg
-        shield.active = false;
+        shield.SetActive(false);
     }
 
     IEnumerator shouter()
     {
         //Rotate 90 deg
-        shout.active = true;
+        shield.SetActive(true);
 
         //Wait for 4 seconds
         yield return new WaitForSecondsRealtime(4);
 
         //Rotate 40 deg
-        shout.active = false;
+        shield.SetActive(false);
     }
 
     void FixedUpdate()
@@ -143,6 +143,8 @@ public class PlayerController2 : MonoBehaviour
         if (h > 0 && !facingRight)
             Flip();
         else if (h < 0 && facingRight)
+            Flip();
+        else if (h == 0 && !facingRight)
             Flip();
 
         if (h == 0)
