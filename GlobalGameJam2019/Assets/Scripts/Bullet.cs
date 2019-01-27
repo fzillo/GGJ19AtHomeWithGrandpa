@@ -38,8 +38,8 @@ public class Bullet : MonoBehaviour {
     private string[] _playerHitSounds = new string[] { "player_hit", "player_hit2", "player_hit3", "player_hit4" };
     private string[] _playerHurtSounds = new string[] { "player_hurt", "player_hurt2", "player_hurt3", "player_hurt4" };
     private void PlaySound() {
-        audioM.Play(_playerHitSounds[(int)Mathf.Floor(Random.value * _playerHitSounds.Length) - 1]);
-        audioM.PlayPitchRandom(_playerHurtSounds[(int)Mathf.Floor(Random.value * _playerHurtSounds.Length) - 1], 0.5f);
+        audioM.Play(_playerHitSounds[(int)Mathf.Floor(Random.value * (_playerHitSounds.Length - 1))]);
+        audioM.PlayPitchRandom(_playerHurtSounds[(int)Mathf.Floor(Random.value * (_playerHurtSounds.Length - 1))], 0.5f);
     }
 
     void OnTriggerExit2D(Collider2D coll) {
