@@ -59,7 +59,7 @@ public class Arm : MonoBehaviour
     }
 
 
-    void ActivateArm()
+    public void ActivateArm()
     {
         if (active) return;
         //Debug.Log("Activate Arm!");
