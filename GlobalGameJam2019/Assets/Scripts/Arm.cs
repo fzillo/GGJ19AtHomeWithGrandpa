@@ -9,6 +9,8 @@ public class Arm : MonoBehaviour
     public int forwardBackwardModifier = 1;
     public float speed = 1;
     public float timeLingering = 1;
+    public float yMaxHeight = 3;
+    public float yMinHeight = 1;
 
     [SerializeField] private int counter;
 
@@ -26,9 +28,10 @@ public class Arm : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (!active && Input.GetKeyDown(KeyCode.O))
         {
             ActivateArm();
+            return;
         }
         if (active)
         {
@@ -62,5 +65,7 @@ public class Arm : MonoBehaviour
         //Debug.Log("Activate Arm!");
         active = true;
         //StartCoroutine(MoveArm());
+        float randY = Random.Range(yMinHeight, yMaxHeight);
+        this.transform.position = new Vector3(originalPos.x, randY, originalPos.z);
     }
 }

@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Boundary
   - Bullet
-  - StraightTopAndBottomEach5
   layers:
   - Default
   - TransparentFX

@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6671a3bdf9417ba4a8fac31f698a15a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1412390045832801531, guid: 9628c3d96e354884b8dbda604979e8bc,
+  bulletPrefab: {fileID: 6763478600538386365, guid: 9115cdbbb1c7ad840a658a0528881935,
     type: 3}
-  numberBulletsPerSpawn: 1
-  delayBetweenBullets: 0
-  spawnindexArray: 
-  delayBetweenSpawns: 0
+  numberBulletsPerSpawn: 3
+  delayBetweenBullets: 0.6637009
+  spawnindexArray: 04000000
+  delayBetweenSpawns: 0.96537256

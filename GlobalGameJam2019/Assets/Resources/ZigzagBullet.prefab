@@ -93,11 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05c1562eecb59649b4078cfd86d4e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -1
+  speed: -2
   tf: {fileID: 6112485014863158467}
   audioM: {fileID: 0}
-  timeTillFlip: 3
+  timeTillFlip: 1
   localTime: 0
+  upDown: 1
 --- !u!61 &8458993813451558509
 BoxCollider2D:
   m_ObjectHideFlags: 0

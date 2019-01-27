@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8622509160335663531}
   m_Layer: 0
   m_Name: Wave_Straight_TopAndBottomEach5
-  m_TagString: StraightTopAndBottomEach5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,5 +47,5 @@ MonoBehaviour:
     type: 3}
   numberBulletsPerSpawn: 1
   delayBetweenBullets: 0
-  spawnindexArray: 000000000100000002000000030000000400000005000000060000000c0000000d0000000e000000
+  spawnindexArray: 000000000100000002000000070000000800000009000000
   delayBetweenSpawns: 0

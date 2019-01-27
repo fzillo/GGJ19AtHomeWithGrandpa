@@ -1073,26 +1073,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73,
-        type: 3}
-      propertyPath: spawnindexArray.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[6]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[5]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5693610991706098752, guid: 16f0ee10c57f4954c93b9501f1326c73,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[4]
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16f0ee10c57f4954c93b9501f1326c73, type: 3}
 --- !u!1 &1268188306
@@ -1331,22 +1311,7 @@ PrefabInstance:
     - target: {fileID: 4264525058261503849, guid: 509e170ea32181d4a95e911830af39b4,
         type: 3}
       propertyPath: m_Name
-      value: Wave_ZigZag_3Streams
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264525058261503862, guid: 509e170ea32181d4a95e911830af39b4,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264525058261503862, guid: 509e170ea32181d4a95e911830af39b4,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[2]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264525058261503862, guid: 509e170ea32181d4a95e911830af39b4,
-        type: 3}
-      propertyPath: spawnindexArray.Array.data[1]
-      value: 5
+      value: Wave_ZigZag_2Streams
       objectReference: {fileID: 0}
     - target: {fileID: 4264525058261503863, guid: 509e170ea32181d4a95e911830af39b4,
         type: 3}
@@ -2170,7 +2135,7 @@ PrefabInstance:
     - target: {fileID: 8622509160335663540, guid: 459dc030c429750418503d814574a0d2,
         type: 3}
       propertyPath: m_Name
-      value: Wave_Straight_TopAndBottomEach5
+      value: Wave_Straight_TopAndBottomEach3
       objectReference: {fileID: 0}
     - target: {fileID: 8622509160335663530, guid: 459dc030c429750418503d814574a0d2,
         type: 3}

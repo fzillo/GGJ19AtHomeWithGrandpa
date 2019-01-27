@@ -47,5 +47,5 @@ MonoBehaviour:
     type: 3}
   numberBulletsPerSpawn: 1
   delayBetweenBullets: 0
-  spawnindexArray: 05000000090000000d000000
+  spawnindexArray: 0100000009000000
   delayBetweenSpawns: 0
