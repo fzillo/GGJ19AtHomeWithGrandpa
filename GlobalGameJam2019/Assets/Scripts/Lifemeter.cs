@@ -14,6 +14,11 @@ public class Lifemeter : MonoBehaviour
     [Range(0, 6)]
     private int currentLiveValue = 5;
 
+    public float getCurrentLife()
+    {
+        return (float)currentLiveValue/(float)lifes.Count;
+    }
+
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();

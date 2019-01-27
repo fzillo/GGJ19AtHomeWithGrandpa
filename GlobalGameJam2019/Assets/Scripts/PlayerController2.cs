@@ -63,8 +63,7 @@ public class PlayerController2 : MonoBehaviour
     }
     public float getAngryScore()
     {
-        // TODO: retrieve it!!!!
-        return 0.5f;
+        return lifemeterInstance.getCurrentLife();
     }
 
 
