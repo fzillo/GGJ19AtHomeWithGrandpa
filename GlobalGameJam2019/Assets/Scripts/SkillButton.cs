@@ -24,7 +24,7 @@ public class SkillButton : MonoBehaviour
 
     public void setAge(float v)
     {
-        Debug.Log(v);
+      //  Debug.Log(v);
         GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,v);
     }
 }

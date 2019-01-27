@@ -48,7 +48,7 @@ public class ConversationController : MonoBehaviour
     void callSkill(Skill skill)
     {
         // TODO: call the effect here
-        Debug.Log("skill called " + skill.name);
+        // Debug.Log("skill called " + skill.name);
         removeSkill(skill);
         removeSkillButton(skill);
     }
@@ -76,7 +76,7 @@ public class ConversationController : MonoBehaviour
         {
             Destroy(deleteme);
 
-            Debug.Log("Button was removed " + skill.name);
+            // Debug.Log("Button was removed " + skill.name);
         }
     }
 
@@ -87,7 +87,7 @@ public class ConversationController : MonoBehaviour
             if (currentSkills[i] == skill)
             {
                 currentSkills[i] = null;
-                Debug.Log("skill " + skill.name + " was removed");
+                // Debug.Log("skill " + skill.name + " was removed");
             }
         }
     }
