@@ -24,7 +24,7 @@ public class Lifemeter : MonoBehaviour
     void EvaluateLife()
     {
         Debug.Log("currentLiveValue " + currentLiveValue);
-        myRenderer.sprite = lifes[currentLiveValue];
+        myRenderer.sprite = lifes[currentLiveValue-1];
     }
 
     
