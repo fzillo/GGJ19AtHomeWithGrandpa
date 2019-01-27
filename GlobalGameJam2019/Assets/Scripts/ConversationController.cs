@@ -8,7 +8,7 @@ public class ConversationController : MonoBehaviour
 {
     public static ConversationController instance;
     private PlayerController2 player;
-    public GameObject enemy;
+    public Lifemeter enemyLifemeter;
 
     public GameObject buttonContainer;
     public GameObject buttonPrefab;
@@ -66,6 +66,9 @@ public class ConversationController : MonoBehaviour
         }
         if(skill.eigenEinFluss < 0) player.lifemeterInstance.DecreaseLife(1);
         if(skill.eigenEinFluss > 0) player.lifemeterInstance.IncreaseLife(1);
+
+        if(skill.gegnerEinFluss < 0) enemyLifemeter.DecreaseLife(1);
+        if(skill.gegnerEinFluss > 0) enemyLifemeter.IncreaseLife(1);
 
         removeSkill(skill);
         removeSkillButton(skill);
