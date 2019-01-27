@@ -52,8 +52,8 @@ public class ConversationController : MonoBehaviour
         
         switch(skill.name)
         {
-            case "MeinungGeigen":
             case "Entschuldigen":
+            case "MeinungGeigen":
             case "Question":
                 player.effectShield();
                 break;
@@ -64,16 +64,23 @@ public class ConversationController : MonoBehaviour
                 break;
 
         }
+        if(skill.eigenEinFluss < 0) player.lifemeterInstance.DecreaseLife(1);
+        if(skill.eigenEinFluss > 0) player.lifemeterInstance.IncreaseLife(1);
+
         removeSkill(skill);
         removeSkillButton(skill);
     }
     void spawnNewSkillButton(Skill skill)
     {
         var newButton = Instantiate(buttonPrefab);
-        newButton.GetComponent<SkillButton>().setSkill(skill);
-        newButton.GetComponent<SkillButton>().setCallback(() => callSkill(skill));
+        SkillButton skillButton = newButton.GetComponent<SkillButton>();
+        skillButton.setSkill(skill);
+        skillButton.setCallback(() => callSkill(skill));
         newButton.transform.SetParent(buttonContainer.transform);
         newButton.transform.localScale = new Vector3(1,1,1);
+        skillButton.setButtonIndex(System.Array.IndexOf(currentSkills, skill));
+        skillButton.transform.position = new Vector3(skillButton.transform.position.x, skillButton.transform.position.y, -5);
+
     }
 
     void removeSkillButton(Skill skill)

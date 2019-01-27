@@ -86,8 +86,13 @@ public class PlayerController2 : MonoBehaviour
         //Rotate 90 deg
         shout.active = true;
 
-        //Wait for 4 seconds
-        yield return new WaitForSecondsRealtime(4);
+		for(int i = 0; i < 10; i++)
+		{
+			shout.active = false;
+        	yield return new WaitForSecondsRealtime(0.1f);
+			shout.active = true;
+        	yield return new WaitForSecondsRealtime(0.1f);
+		}
 
         //Rotate 40 deg
         shout.active = false;

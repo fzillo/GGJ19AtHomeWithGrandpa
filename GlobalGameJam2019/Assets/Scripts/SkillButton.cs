@@ -9,6 +9,8 @@ public class SkillButton : MonoBehaviour
 {
     internal ConversationController.Skill skill;
 
+    public List<Sprite> sprites;
+
     // Start is called before the first frame update
     public void setSkill(ConversationController.Skill skill)
     {
@@ -26,5 +28,10 @@ public class SkillButton : MonoBehaviour
     {
       //  Debug.Log(v);
         GetComponent<Image>().color = new Color(0.5f,0.5f,0.5f,v);
+    }
+
+    public void setButtonIndex(int i)
+    {
+        transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[i%sprites.Count];
     }
 }
