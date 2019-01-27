@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7916857250218537969}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 747803916f98b504d90ba96a92aaeb82, type: 3}
   m_Name: 
@@ -64,6 +64,7 @@ MonoBehaviour:
   moveSpeed: 0.2
   movement: {x: 0, y: 0}
   player: {fileID: 7916857250866558651}
+  liveMeterInstance: {fileID: 0}
   grounded: 0
 --- !u!1 &7916857250866558650
 GameObject:
