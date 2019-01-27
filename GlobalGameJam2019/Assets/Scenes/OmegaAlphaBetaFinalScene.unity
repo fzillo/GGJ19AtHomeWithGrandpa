@@ -189,10 +189,15 @@ PrefabInstance:
       propertyPath: lifemeterInstance
       value: 
       objectReference: {fileID: 1388301473}
+    - target: {fileID: 943468275034095255, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7018528697834305909, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
         type: 3}
       propertyPath: FPS
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe1e8bd497cd3e4d8904011d33b534f, type: 3}
