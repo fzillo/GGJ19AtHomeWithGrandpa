@@ -1,6 +1,8 @@
 ﻿using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 [Serializable]
 public class AudioManager : MonoBehaviour {
@@ -27,7 +29,7 @@ public class AudioManager : MonoBehaviour {
         }
     }
     void Start() {
-        Play("Theme");
+        PlaySequence("intro", "Theme");
     }
 
     private Sound GetSound(string name) {
@@ -49,10 +51,20 @@ public class AudioManager : MonoBehaviour {
         sound.source.Play();
     }
 
-    public void PlayPitchRandom(string name, float maxDeviation = 1.0f) {
+    public void PlayPitchRandom(string name, float maxDeviation = 2.0f) {
         var sound = GetSound(name);
-        float randPitch = UnityEngine.Random.Range(sound.pitch - maxDeviation, sound.pitch + maxDeviation);
+        float randPitch = UnityEngine.Random.Range(sound.pitch / maxDeviation, sound.pitch * maxDeviation);
         sound.pitch = randPitch;
         sound.source.Play();
+    }
+
+    public void PlaySequence(params string[] names) {
+        StartCoroutine(_PlaySequence(names));
+    }
+    private IEnumerator _PlaySequence(params string[] names) {
+        foreach (Sound sound in names.Select(n => GetSound(n))) {
+            sound.source.Play();
+            yield return new WaitForSecondsRealtime(sound.source.clip.length);
+        }
     }
 }
