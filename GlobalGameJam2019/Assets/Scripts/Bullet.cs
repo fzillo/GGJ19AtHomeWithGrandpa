@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
             PlayerController2 pc = coll.GetComponent<PlayerController2>();
             if (pc != null)
             {
-                Lifemeter lm = pc.liveMeterInstance;
+                Lifemeter lm = pc.lifemeterInstance;
 
                 if (lm != null)
                 {

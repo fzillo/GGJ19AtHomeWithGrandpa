@@ -1735,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 150405212272397583, guid: 6fe1e8bd497cd3e4d8904011d33b534f,
         type: 3}
-      propertyPath: liveMeterInstance
+      propertyPath: lifemeterInstance
       value: 
       objectReference: {fileID: 2098238127}
     m_RemovedComponents: []

@@ -99,8 +99,10 @@ MonoBehaviour:
   moveSpeed: 0.2
   movement: {x: 0, y: 0}
   player: {fileID: 150405212272397579}
-  liveMeterInstance: {fileID: 0}
+  lifemeterInstance: {fileID: 0}
   grounded: 0
+  shield: {fileID: 0}
+  shout: {fileID: 0}
 --- !u!95 &150405212272397581
 Animator:
   serializedVersion: 3
