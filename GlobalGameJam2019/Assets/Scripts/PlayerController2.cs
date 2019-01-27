@@ -7,6 +7,7 @@ public class PlayerController2 : MonoBehaviour {
     [HideInInspector] public bool facingRight = true;
     public float moveSpeed = 0.2f;
     public Vector2 movement;
+	public float spriteToBottomDist = 2.0f;
 
     public Transform player;
     public Lifemeter lifemeterInstance;
@@ -35,20 +36,26 @@ public class PlayerController2 : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 2, 1 << LayerMask.NameToLayer("Ground"));
-
+        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 5, 1 << LayerMask.NameToLayer("Ground"));
+		float distanceToGround = player.transform.position.y - hit.point.y;
         if (hit.collider != null)
-            grounded = (player.transform.position.y - hit.point.y < 2.5) &&
-                (player.transform.position.y - hit.point.y > 0.4);
+			grounded = (distanceToGround < spriteToBottomDist+0.2f) && (distanceToGround > spriteToBottomDist);
         else
             grounded = false;
 
         //if(anim.GetBool("Running") == false)
         //	player.position += 2.5f * Time.deltaTime * Vector3.left;
         if (!grounded) {
-            player.position += 5f * Time.deltaTime * Vector3.down;
+			if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+				player.position += 5f * Time.deltaTime * Vector3.down;
+			else
+				player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
+			
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("FastFall"))
-                player.position += 5f * Time.deltaTime * Vector3.down;
+				if(5f * Time.deltaTime < Mathf.Abs(distanceToGround - spriteToBottomDist))
+					player.position += 5f * Time.deltaTime * Vector3.down;
+				else
+					player.position += (distanceToGround - spriteToBottomDist) * Vector3.down;
         }
 
         anim.SetBool("Grounded", grounded);
@@ -96,14 +103,14 @@ public class PlayerController2 : MonoBehaviour {
                 audioManager.PlayPitchRandom("jump_double", 0.05f);
 
                 //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 15);
+                movement = new Vector2(h, 10);
             } else {
                 Jumped = true;
                 anim.SetTrigger("Jump");
                 audioManager.PlayPitchRandom("jump", 0.05f);
 
                 //rb2d.velocity = Vector2.zero;
-                movement = new Vector2(h, 14);
+                movement = new Vector2(h, 10);
             }
         } else movement = new Vector2(h, 0);
         rb2d.AddForce(movement, ForceMode2D.Impulse);
