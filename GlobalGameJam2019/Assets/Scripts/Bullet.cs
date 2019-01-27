@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
     {
         audioM = FindObjectOfType<AudioManager>();
         if (audioM != null)
+        {
             audioM.Play("PloppHigh");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -22,7 +24,22 @@ public class Bullet : MonoBehaviour
             return;
         }
         if (audioM != null)
+        {
             audioM.Play("PloppLow");
+        }
+        if (coll.tag == "Player")
+        {
+            PlayerController2 pc = coll.GetComponent<PlayerController2>();
+            if (pc != null)
+            {
+                Lifemeter lm = pc.lifemeterInstance;
+
+                if (lm != null)
+                {
+                    lm.DecreaseLife(1);
+                }
+            }
+        }
         Destroy(gameObject);
         Debug.Log(coll);
     }

@@ -28,6 +28,7 @@ public class Lifemeter : MonoBehaviour
 
     void EvaluateLife()
     {
+        Debug.Log("currentLiveValue " + currentLiveValue);
         switch (currentLiveValue)
         {
             case 0:
@@ -58,8 +59,9 @@ public class Lifemeter : MonoBehaviour
         }
     }
 
-    int DecreaseLife(int value)
+    public int DecreaseLife(int value)
     {
+        Debug.Log("Decrease Life by: " + value);
         currentLiveValue -= value;
         if (currentLiveValue < 0)
         {
@@ -69,8 +71,9 @@ public class Lifemeter : MonoBehaviour
         return currentLiveValue;
     }
 
-    int IncreaseLife(int value)
+    public int IncreaseLife(int value)
     {
+        Debug.Log("Increase Life by: " + value);
         currentLiveValue += value;
         if (currentLiveValue > 6)
         {
