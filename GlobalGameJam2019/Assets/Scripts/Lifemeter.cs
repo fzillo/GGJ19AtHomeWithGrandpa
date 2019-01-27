@@ -4,51 +4,57 @@ using UnityEngine;
 
 public class Lifemeter : MonoBehaviour
 {
+    public const int _MaxLiveValue = 6;
 
     SpriteRenderer myRenderer;
 
     public List<Sprite> lifes;
 
-    public int liveValueAtStart = 5;
+    public int liveValueAtStart = 3;
 
-    [Range(0, 6)]
-    private int currentLiveValue = 5;
+    [Range(0, _MaxLiveValue)]
+    private int value;
+
+    public int CurrentLiveValue {
+        private set { this.value = value; }
+        get { return value; }
+    }
 
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
-        currentLiveValue = liveValueAtStart;
+        CurrentLiveValue = liveValueAtStart;
         EvaluateLife();
     }
 
     void EvaluateLife()
     {
-        Debug.Log("currentLiveValue " + currentLiveValue);
-        myRenderer.sprite = lifes[currentLiveValue-1];
+        Debug.Log("currentLiveValue " + CurrentLiveValue);
+        myRenderer.sprite = lifes[CurrentLiveValue-1];
     }
 
     
     public int DecreaseLife(int value)
     {
         Debug.Log("Decrease Life by: " + value);
-        currentLiveValue -= value;
-        if (currentLiveValue < 0)
+        CurrentLiveValue -= value;
+        if (CurrentLiveValue < 0)
         {
-            currentLiveValue = 0;
+            CurrentLiveValue = 0;
         }
         EvaluateLife();
-        return currentLiveValue;
+        return CurrentLiveValue;
     }
 
     public int IncreaseLife(int value)
     {
         Debug.Log("Increase Life by: " + value);
-        currentLiveValue += value;
-        if (currentLiveValue > lifes.Count)
+        CurrentLiveValue += value;
+        if (CurrentLiveValue > lifes.Count)
         {
-            currentLiveValue = lifes.Count;
+            CurrentLiveValue = lifes.Count;
         }
         EvaluateLife();
-        return currentLiveValue;
+        return CurrentLiveValue;
     }
 }
