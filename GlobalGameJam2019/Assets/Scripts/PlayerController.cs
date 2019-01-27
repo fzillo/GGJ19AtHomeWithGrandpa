@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public Rigidbody2D rigidBody;
+    private Rigidbody2D rigidBody;
+    private AudioManager audioManager;
+    private Animator animator;
 
     public float speed = 10;
     public Vector2 movement;
@@ -12,15 +14,9 @@ public class PlayerController : MonoBehaviour {
     private bool InJump = false;
     private bool Jumped = false;
     private bool DoubleJump = false;
-	private Animator animator;
 
 	void Start(){
-		animator = player.GetComponent<Animator>();
-	}
-
-    private AudioManager audioManager;
-
-    private void Start() {
+		animator = GetComponent<Animator>();
         audioManager = GetComponent<AudioManager>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
