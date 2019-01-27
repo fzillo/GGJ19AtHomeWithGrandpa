@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 0e7c48b143f56ad4eac1150f7604ef33
+guid: ec316751240e2534c803a98f53372ac3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SPRITESHEET BOSS CRY ATTACK_0
-    21300002: SPRITESHEET BOSS CRY ATTACK_1
-    21300004: SPRITESHEET BOSS CRY ATTACK_2
-    21300006: SPRITESHEET BOSS CRY ATTACK_3
-    21300008: SPRITESHEET BOSS CRY ATTACK_4
-    21300010: SPRITESHEET BOSS CRY ATTACK_5
-    21300012: SPRITESHEET BOSS CRY ATTACK_6
-    21300014: SPRITESHEET BOSS CRY ATTACK_7
-    21300016: SPRITESHEET BOSS CRY ATTACK_8
+    21300000: SPRITESHEET BOSS ARM WIGGLE ATTACK_0
+    21300002: SPRITESHEET BOSS ARM WIGGLE ATTACK_1
+    21300004: SPRITESHEET BOSS ARM WIGGLE ATTACK_2
+    21300006: SPRITESHEET BOSS ARM WIGGLE ATTACK_3
+    21300008: SPRITESHEET BOSS ARM WIGGLE ATTACK_4
+    21300010: SPRITESHEET BOSS ARM WIGGLE ATTACK_5
+    21300012: SPRITESHEET BOSS ARM WIGGLE ATTACK_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -104,87 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4be8ddcf9cba09b4e821e4ccda24ec7b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_1
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee07fb3047f68704289537c58f82b75d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_2
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: daa4fb734bd1b584a84b35fd1fddcec1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 1000
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6288fd07a90b0824e9c2b3c0dce88649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_4
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_0
       rect:
         serializedVersion: 2
         x: 0
@@ -198,13 +116,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cf1728652f85b848b61036de7033251
+      spriteID: 00882035ae21f024596cf053a4a7a130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_5
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_1
       rect:
         serializedVersion: 2
         x: 500
@@ -218,13 +136,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b3f48fa991eb714eafab037dd843829
+      spriteID: 2068ad1ed1f9bbd4bb7df49fb82f1f56
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_6
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -238,13 +156,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d01370ef8113be408a55248c2042687
+      spriteID: 96d022aa9889f1f4e924ce44549c6c63
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_7
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -258,13 +176,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbe260df4700f9e4e97bda9a0313247f
+      spriteID: f51a34a13214be6478fdf421fe5e30fc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPRITESHEET BOSS CRY ATTACK_8
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_4
       rect:
         serializedVersion: 2
         x: 0
@@ -278,7 +196,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df66222a44f23334e9ec4f2911621292
+      spriteID: bdeaa094db1789a43bffb9047325d80a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67c91ca13d2924458ebaa285f4f85d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITESHEET BOSS ARM WIGGLE ATTACK_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c7fe1d26ce27d4e96d6ddb9f3ea7d1
       vertices: []
       indices: 
       edges: []
@@ -286,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3b4b168d5b536ef48b9a0c9add99e2a4
+    spriteID: 8567a1abd17f0cc41a5082f738d61b8d
     vertices: []
     indices: 
     edges: []
