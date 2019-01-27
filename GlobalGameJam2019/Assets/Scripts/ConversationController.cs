@@ -8,12 +8,12 @@ public class ConversationController : MonoBehaviour
 {
     public static ConversationController instance;
     private PlayerController2 player;
-    public GameObject enemy;
+    public Lifemeter enemyLifemeter;
 
     public GameObject buttonContainer;
     public GameObject buttonPrefab;
 
-    private void someFunc() { }
+    private void someFunc(){}
     private List<Skill> availableSkills = new List<Skill> {
         // TODO: animationen:
         /*
@@ -48,65 +48,97 @@ public class ConversationController : MonoBehaviour
     void callSkill(Skill skill)
     {
         // TODO: call the effect here
-        Debug.Log("skill called " + skill.name);
-        player.effectShield();
-        // switch(skill.name)
-        // {
-        //     case "":
-        //         pass;
-        //     default:
-        // }
+        Debug.Log("skill called "+skill.name);
+        
+        switch(skill.name)
+        {
+            case "Entschuldigen":
+            case "MeinungGeigen":
+            case "Question":
+                player.effectShield();
+                break;
+            case "Gegenbeleidigung":
+                player.effectShout();
+                break;
+            default:
+                break;
+
+        }
+        if(skill.eigenEinFluss < 0) player.lifemeterInstance.DecreaseLife(1);
+        if(skill.eigenEinFluss > 0) player.lifemeterInstance.IncreaseLife(1);
+
+        if(skill.gegnerEinFluss < 0) enemyLifemeter.DecreaseLife(1);
+        if(skill.gegnerEinFluss > 0) enemyLifemeter.IncreaseLife(1);
+
         removeSkill(skill);
         removeSkillButton(skill);
     }
     void spawnNewSkillButton(Skill skill)
     {
         var newButton = Instantiate(buttonPrefab);
-        newButton.GetComponent<SkillButton>().setSkill(skill);
-        newButton.GetComponent<SkillButton>().setCallback(() => callSkill(skill));
+        SkillButton skillButton = newButton.GetComponent<SkillButton>();
+        skillButton.setSkill(skill);
+        skillButton.setCallback(() => callSkill(skill));
         newButton.transform.SetParent(buttonContainer.transform);
-        newButton.transform.localScale = new Vector3(1, 1, 1);
+        newButton.transform.localScale = new Vector3(1,1,1);
+        skillButton.setButtonIndex(System.Array.IndexOf(currentSkills, skill));
+        skillButton.transform.position = new Vector3(skillButton.transform.position.x, skillButton.transform.position.y, -5);
+
     }
 
     void removeSkillButton(Skill skill)
     {
 
         GameObject deleteme = null;
-        foreach (Transform child in buttonContainer.transform)
+        foreach(Transform child in buttonContainer.transform)
         {
-            if (child.GetComponent<SkillButton>().skill == skill)
+            if(child.GetComponent<SkillButton>().skill ==skill)
             {
                 deleteme = child.gameObject;
             }
         }
-        if (deleteme != null)
+        if(deleteme != null) 
         {
             Destroy(deleteme);
 
-            Debug.Log("Button was removed " + skill.name);
+            Debug.Log("Button was removed "+skill.name);
         }
     }
 
     private void removeSkill(Skill skill)
     {
-        for (int i = 0; i < currentSkills.Length; i++)
+        for(int i = 0; i < currentSkills.Length; i++)
         {
-            if (currentSkills[i] == skill)
+            if (currentSkills[i] == skill) 
             {
                 currentSkills[i] = null;
-                Debug.Log("skill " + skill.name + " was removed");
+                Debug.Log("skill "+skill.name+" was removed");
             }
         }
     }
 
     void Update()
     {
-        if (PlayerController2.instance != null) player = PlayerController2.instance;
+        if (currentSkills[0] != null &&  Input.GetKeyDown(KeyCode.A))
+        {
+            callSkill(currentSkills[0]);
+        }
+        if (currentSkills[1] != null &&  Input.GetKeyDown(KeyCode.B))
+        {
+            callSkill(currentSkills[1]);
+        }
+        if (currentSkills[2] != null &&  Input.GetKeyDown(KeyCode.X))
+        {
+            callSkill(currentSkills[2]);
+        }
+        
+
+        if(PlayerController2.instance != null) player = PlayerController2.instance;
 
         // set next skill
-        for (int i = 0; i < currentSkills.Length; i++)
+        for(int i = 0; i < currentSkills.Length; i++)
         {
-            if (currentSkills[i] == null)
+            if(currentSkills[i] == null)
             {
                 currentSkills[i] = getNextSkill(player.getAngryScore());
                 currentSkills[i].startedTime = Time.time;
@@ -114,30 +146,30 @@ public class ConversationController : MonoBehaviour
             }
         }
         // check which skills are depleated
-        for (int i = 0; i < currentSkills.Length; i++)
-        {
+        for(int i = 0; i < currentSkills.Length; i++)
+        {   
             var skill = currentSkills[i];
 
-            if (skill.timeUntilDisappearSec * 0.5 < Time.time - skill.startedTime)
+            if(skill.timeUntilDisappearSec * 0.5 < Time.time - skill.startedTime)
             {
                 setSkillViewAge(skill);
             }
 
-            if (skill.timeUntilDisappearSec < Time.time - skill.startedTime)
+            if(skill.timeUntilDisappearSec < Time.time - skill.startedTime)
             {
                 removeSkill(skill);
                 removeSkillButton(skill);
             }
         }
     }
-
+    
     void setSkillViewAge(Skill skill)
     {
-        foreach (Transform child in buttonContainer.transform)
+        foreach(Transform child in buttonContainer.transform)
         {
-            if (child.GetComponent<SkillButton>().skill == skill)
+            if(child.GetComponent<SkillButton>().skill ==skill)
             {
-                var x = ((Time.time - skill.startedTime) - (skill.timeUntilDisappearSec * 0.5f)) / (skill.timeUntilDisappearSec * 0.5f);
+                var x = ((Time.time - skill.startedTime)-(skill.timeUntilDisappearSec * 0.5f)) / (skill.timeUntilDisappearSec * 0.5f);
                 child.GetComponent<SkillButton>().setAge(x);
             }
         }
@@ -148,13 +180,13 @@ public class ConversationController : MonoBehaviour
     // angryLevel: value from 0 to 1
     public Skill getNextSkill(float playerAngryLevel)
     {
-        while (true)
+        while(true)
         {
-            var skill = availableSkills[UnityEngine.Random.Range(0, availableSkills.Count)];
-            if (skill.neededCalmness < 1f - playerAngryLevel)
+            var skill =  availableSkills[UnityEngine.Random.Range(0,availableSkills.Count)];
+            if(skill.neededCalmness < 1f - playerAngryLevel || true)
             {
                 var newSkill = skill.Clone();
-                newSkill.timeUntilDisappearSec = 5f;
+                newSkill.timeUntilDisappearSec = 10f;
                 return newSkill;
             }
         }
@@ -162,10 +194,10 @@ public class ConversationController : MonoBehaviour
 
     public Attack getAnAttack(float enemyAngryLevel)
     {
-        while (true)
+        while(true)
         {
-            var attk = availableAttacks[UnityEngine.Random.Range(0, availableAttacks.Count)];
-            if (attk.neededAngryNes < 1f - enemyAngryLevel)
+            var attk =  availableAttacks[UnityEngine.Random.Range(0,availableAttacks.Count)];
+            if(attk.neededAngryNes < 1f - enemyAngryLevel || true)
             {
                 var newAttk = attk.Clone();
                 return newAttk;
@@ -195,7 +227,7 @@ public class ConversationController : MonoBehaviour
         // https://stackoverflow.com/questions/6569486/creating-a-copy-of-an-object-in-c-sharp
         public Skill Clone()
         {
-            return (Skill)this.MemberwiseClone();
+            return (Skill) this.MemberwiseClone();
         }
     }
 
@@ -213,7 +245,7 @@ public class ConversationController : MonoBehaviour
         // https://stackoverflow.com/questions/6569486/creating-a-copy-of-an-object-in-c-sharp
         public Attack Clone()
         {
-            return (Attack)this.MemberwiseClone();
+            return (Attack) this.MemberwiseClone();
         }
     }
 

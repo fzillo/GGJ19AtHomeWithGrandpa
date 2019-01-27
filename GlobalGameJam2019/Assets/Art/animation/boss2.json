@@ -1,0 +1,57 @@
+{ "skeleton": { "images": "D:/Dropbox/Artsy Back up/2018/GJ19/Animation/images/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "boss", "parent": "root", "x": 249, "y": -193.5 }
+],
+"slots": [
+	{ "name": "boss2 Copy", "bone": "boss", "attachment": "boss2 Copy" },
+	{ "name": "boss2 Copy 7", "bone": "boss", "attachment": "boss2 Copy 7" },
+	{ "name": "boss2 Copy 6", "bone": "boss", "attachment": "boss2 Copy 6" },
+	{ "name": "boss2 Copy 5", "bone": "boss", "attachment": "boss2 Copy 5" },
+	{ "name": "boss2 Copy 4", "bone": "boss", "attachment": "boss2 Copy 4" },
+	{ "name": "boss2 Copy 3", "bone": "boss", "attachment": "boss2 Copy 3" },
+	{ "name": "boss2 Copy 2", "bone": "boss", "attachment": "boss2 Copy 2" },
+	{ "name": "Layer 3", "bone": "boss", "attachment": "Layer 3" },
+	{ "name": "boss2", "bone": "boss", "attachment": "boss2" },
+	{ "name": "Layer 2", "bone": "boss", "attachment": "Layer 2" },
+	{ "name": "Layer 1", "bone": "boss", "attachment": "Layer 1" }
+],
+"skins": {
+	"default": {
+		"boss2 Copy": {
+			"boss2 Copy": { "x": 321, "y": -380.5, "width": 148, "height": 156 }
+		},
+		"boss2 Copy 7": {
+			"boss2 Copy 7": { "x": 162, "y": -360, "width": 178, "height": 143 }
+		},
+		"boss2 Copy 6": {
+			"boss2 Copy 6": { "x": 197, "y": -499.5, "width": 210, "height": 166 }
+		},
+		"boss2 Copy 5": {
+			"boss2 Copy 5": { "x": 287, "y": -466.5, "width": 176, "height": 162 }
+		},
+		"boss2 Copy 4": {
+			"boss2 Copy 4": { "x": 364, "y": -317.5, "width": 126, "height": 140 }
+		},
+		"boss2 Copy 3": {
+			"boss2 Copy 3": { "x": 298, "y": -313, "width": 136, "height": 117 }
+		},
+		"boss2 Copy 2": {
+			"boss2 Copy 2": { "x": 264.5, "y": -289, "width": 111, "height": 111 }
+		},
+		"Layer 3": {
+			"Layer 3": { "x": 150, "y": -224.5, "width": 312, "height": 318 }
+		},
+		"boss2": {
+			"boss2": { "x": 86, "y": -67, "width": 672, "height": 523 }
+		},
+		"Layer 2": {
+			"Layer 2": { "x": -127, "y": -4, "width": 64, "height": 125 }
+		},
+		"Layer 1": {
+			"Layer 1": { "x": 0, "y": 0, "width": 162, "height": 157 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}

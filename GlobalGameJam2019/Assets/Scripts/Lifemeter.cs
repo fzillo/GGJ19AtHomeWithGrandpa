@@ -4,82 +4,62 @@ using UnityEngine;
 
 public class Lifemeter : MonoBehaviour
 {
+    public const int _MaxLiveValue = 6;
 
     SpriteRenderer myRenderer;
 
-    public Sprite life1;
-    public Sprite life2;
-    public Sprite life3;
-    public Sprite life4;
-    public Sprite life5;
+    public List<Sprite> lifes;
 
-    [Range(1, 5)]
-    public int liveValueAtStart = 5;
+    public int liveValueAtStart = 3;
 
-    [Range(0, 6)]
-    private int currentLiveValue = 5;
+    [Range(0, _MaxLiveValue)]
+    private int value;
+
+    public int CurrentLiveValue {
+        private set { this.value = value; }
+        get { return value; }
+    }
+
+    public float getCurrentLife()
+    {
+        return (float)CurrentLiveValue/(float)lifes.Count;
+    }
 
     void Start()
     {
         myRenderer = GetComponent<SpriteRenderer>();
-        currentLiveValue = liveValueAtStart;
+        CurrentLiveValue = liveValueAtStart;
         EvaluateLife();
     }
 
     void EvaluateLife()
     {
-        Debug.Log("currentLiveValue " + currentLiveValue);
-        switch (currentLiveValue)
-        {
-            case 0:
-                //End game!
-                Debug.Log("END");
-                break;
-            case 1:
-                myRenderer.sprite = life1;
-                break;
-            case 2:
-                myRenderer.sprite = life2;
-                break;
-            case 3:
-                myRenderer.sprite = life3;
-                break;
-            case 4:
-                myRenderer.sprite = life4;
-                break;
-            case 5:
-                myRenderer.sprite = life5;
-                break;
-            case 6:
-                //End game!
-                Debug.Log("END");
-                break;
-            default:
-                break;
-        }
+        Debug.Log("currentLiveValue " + CurrentLiveValue);
+        myRenderer.sprite = lifes[CurrentLiveValue-1];
     }
 
+    
     public int DecreaseLife(int value)
     {
         Debug.Log("Decrease Life by: " + value);
-        currentLiveValue -= value;
-        if (currentLiveValue < 0)
+        CurrentLiveValue -= value;
+        if (CurrentLiveValue < 0)
         {
-            currentLiveValue = 0;
+            CurrentLiveValue = 0;
         }
         EvaluateLife();
-        return currentLiveValue;
+        return CurrentLiveValue;
     }
 
     public int IncreaseLife(int value)
     {
         Debug.Log("Increase Life by: " + value);
-        currentLiveValue += value;
-        if (currentLiveValue > 6)
+        CurrentLiveValue += value;
+        if (CurrentLiveValue > lifes.Count)
         {
-            currentLiveValue = 6;
+            CurrentLiveValue = lifes.Count;
         }
         EvaluateLife();
-        return currentLiveValue;
+        return CurrentLiveValue;
     }
 }

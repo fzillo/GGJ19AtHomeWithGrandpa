@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7654502016644460622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7654502016644460592}
+  - component: {fileID: 7654502016644460593}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7654502016644460592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654502016644460622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7040763, y: -1.6617707, z: -0.12621121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7654502016644460593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654502016644460622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef9971d93cbf84ebffd38fdc0a2061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 2e2ad1ce6739d044a8376bf77301de69, type: 3}
+    volume: 0.412
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: PloppLow
+    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PloppHigh
+    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
+    volume: 1
+    pitch: 1.6
+    loop: 0
+    source: {fileID: 0}
+  - name: boss_cry
+    clip: {fileID: 8300000, guid: 93cd893ad26a7764baa33b9a34a34648, type: 3}
+    volume: 1
+    pitch: 1.6
+    loop: 0
+    source: {fileID: 0}
+  - name: boss_grab
+    clip: {fileID: 8300000, guid: 2363be5e76af2f443924adf37c6d1c8f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boss_rant
+    clip: {fileID: 8300000, guid: ad2eae0e92d132e4eab3494e74c023cd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jump
+    clip: {fileID: 8300000, guid: 3458448d1f7403548be7db5065b46436, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jump_double
+    clip: {fileID: 8300000, guid: 7411af1d45aaaa84eb5ced887b3d925f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: jump_landing
+    clip: {fileID: 8300000, guid: bab0e34699a07b64689eeb436e0aae9b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: loose
+    clip: {fileID: 8300000, guid: a08bd94b2e9dc1c4c9a30784d71f5c53, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_asking
+    clip: {fileID: 8300000, guid: 392c19fc8b007504382b04e436dc7757, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: player_shout
+    clip: {fileID: 8300000, guid: f292cd246982bfb4ab441d0ac19736ab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: projectile_1
+    clip: {fileID: 8300000, guid: 2a302de1348f3114d910b67bf90e44b1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: projectile_2
+    clip: {fileID: 8300000, guid: b6b4915795f26cc48a083cae69a94cb4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: projectile_3
+    clip: {fileID: 8300000, guid: 2bedb2f8bacdbbf40bccd611b78cdd43, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: shield_start
+    clip: {fileID: 8300000, guid: 51c64dd2cf47913409c2109075ff9aa9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step
+    clip: {fileID: 8300000, guid: 101f38bbe510f044f9e59763a6f3866a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: win
+    clip: {fileID: 8300000, guid: 7e31f3a051a27c94bb2988bbeb6e5eb9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: 5083ded50c0a1b440b64721fd2f69d6b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: intro
+    clip: {fileID: 8300000, guid: 68be78ed2c3b0074089c35be2a96b7ed, type: 3}
+    volume: 0.417
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

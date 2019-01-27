@@ -192,75 +192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1041782847
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041782849}
-  - component: {fileID: 1041782848}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1041782848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041782847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bef9971d93cbf84ebffd38fdc0a2061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Theme
-    clip: {fileID: 8300000, guid: 5083ded50c0a1b440b64721fd2f69d6b, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: PloppLow
-    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: PloppHigh
-    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
-    volume: 1
-    pitch: 1.6
-    loop: 0
-    source: {fileID: 0}
-  - name: PloppHigh
-    clip: {fileID: 8300000, guid: 0c10ded2c21f81c40ac28fc41355b2ec, type: 3}
-    volume: 1
-    pitch: 1.6
-    loop: 0
-    source: {fileID: 0}
---- !u!4 &1041782849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041782847}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7040763, y: -1.6617707, z: -0.12621121}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726733000
 GameObject:
@@ -291,9 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747803916f98b504d90ba96a92aaeb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5622880237525417500}
-  speed: 1
-  movement: {x: 0, y: 0}
 --- !u!4 &1726733002
 Transform:
   m_ObjectHideFlags: 0
@@ -307,7 +236,7 @@ Transform:
   m_Children:
   - {fileID: 5622880237525417500}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763829263
 GameObject:
@@ -373,7 +302,7 @@ Transform:
   m_LocalScale: {x: 20, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779500367
 GameObject:
@@ -418,7 +347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2135324124
 PrefabInstance:
@@ -824,6 +753,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &7654502016542238833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7654502016644460622, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.7040763
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6617707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12621121
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654502016644460592, guid: 810e5bb9993c2964f8708be731ba79b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 810e5bb9993c2964f8708be731ba79b7, type: 3}
 --- !u!4 &8447086189684548858
 Transform:
   m_ObjectHideFlags: 0
@@ -837,7 +835,7 @@ Transform:
   m_Children:
   - {fileID: 6558619942233852612}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8723961958059284960
 BoxCollider2D:
