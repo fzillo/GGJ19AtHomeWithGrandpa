@@ -54,9 +54,11 @@ public class ConversationController : MonoBehaviour
         {
             case "Entschuldigen":
             case "MeinungGeigen":
-            case "Question":
                 player.effectShield();
                 break;
+            case "Question":
+                player.effectQuestion();
+                goto case "Entschuldigen";
             case "Gegenbeleidigung":
                 player.effectShout();
                 break;
