@@ -67,7 +67,7 @@ public class PlayerController2 : MonoBehaviour {
     void FixedUpdate() {
         _frameCount++;
         if (_frameCount % 10 == 0) // TODO: von animation frame abhängig machen
-            audioManager.PlayPitchRandom("step", 0.2f);
+            audioManager.PlayPitchRandom("step", 0.002f);
 
         float h = Input.GetAxis("Horizontal");
         //anim.SetFloat("Speed", Mathf.Abs(h));
@@ -100,14 +100,14 @@ public class PlayerController2 : MonoBehaviour {
             else if (Jumped) {
                 DoubleJump = true;
                 anim.SetTrigger("Jump");
-                audioManager.PlayPitchRandom("jump_double", 0.05f);
+                audioManager.PlayPitchRandom("jump_double", 0.005f);
 
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 10);
             } else {
                 Jumped = true;
                 anim.SetTrigger("Jump");
-                audioManager.PlayPitchRandom("jump", 0.05f);
+                audioManager.PlayPitchRandom("jump", 0.005f);
 
                 //rb2d.velocity = Vector2.zero;
                 movement = new Vector2(h, 10);
@@ -145,22 +145,20 @@ public class PlayerController2 : MonoBehaviour {
         StartCoroutine(shouter());
     }
     public float getAngryScore() {
-        // TODO: retrieve it!!!!
-        return 0.5f;
+        return lifemeterInstance.CurrentLiveValue / Lifemeter._MaxLiveValue;
     }
 
 
 
     IEnumerator shielder() {
         shield.SetActive(true);
-        audioManager.Play("shield_start");
         yield return new WaitForSecondsRealtime(4);
         shield.SetActive(false);
     }
 
     IEnumerator shouter() {
         shout.SetActive(true);
-        audioManager.Play("player_shout");
+        audioManager.PlayInSequencePitchRandom("player_shout", 3);
         for (int i = 0; i < 10; i++) {
             shout.SetActive(false);
             yield return new WaitForSecondsRealtime(0.1f);
