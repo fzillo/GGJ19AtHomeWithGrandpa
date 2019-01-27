@@ -10,6 +10,8 @@ public class GameMaster : MonoBehaviour
     public float bulletIntervalSeconds = 2f;
     public float lastSpawn = 0;
 
+    public Animator bossMonster;
+
     public Lifemeter enemy;
     public Lifemeter player;
 
