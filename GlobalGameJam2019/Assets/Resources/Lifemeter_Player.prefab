@@ -92,9 +92,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218b0674204bc2c46b63952e6af9d8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life1: {fileID: 21300008, guid: 35dd0e94d12963d4d98c3b08c0dc5f95, type: 3}
-  life2: {fileID: 21300006, guid: 35dd0e94d12963d4d98c3b08c0dc5f95, type: 3}
-  life3: {fileID: 21300004, guid: 35dd0e94d12963d4d98c3b08c0dc5f95, type: 3}
-  life4: {fileID: 21300002, guid: 35dd0e94d12963d4d98c3b08c0dc5f95, type: 3}
-  life5: {fileID: 21300000, guid: 35dd0e94d12963d4d98c3b08c0dc5f95, type: 3}
+  lifes:
+  - {fileID: 21300000, guid: 0187824b1891e420e9bbd18909603cde, type: 3}
+  - {fileID: 21300000, guid: 11674cec3b0d844369907fc006a4a441, type: 3}
+  - {fileID: 21300000, guid: 429ffd5d17ede45c3859c0c1b85fa5a9, type: 3}
+  - {fileID: 21300000, guid: 48135b189ac78446bb4585cc02248930, type: 3}
+  - {fileID: 21300000, guid: 3005c6d95780243c287a89c6d16673e3, type: 3}
+  - {fileID: 21300000, guid: 1ae7a66e2193f479484f50cf2b3f3809, type: 3}
   liveValueAtStart: 5
