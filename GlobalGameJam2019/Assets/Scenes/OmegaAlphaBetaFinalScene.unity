@@ -663,6 +663,7 @@ MonoBehaviour:
   bulletSpawnController: {fileID: 2021663527}
   bulletIntervalSeconds: 2
   lastSpawn: 0
+  bossMonster: {fileID: 1848797427}
   enemy: {fileID: 1037522350}
   player: {fileID: 1388301473}
 --- !u!1001 &469612971
@@ -2078,6 +2079,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1368399a1e4f3314d9ae996482bf4680, type: 3}
+--- !u!95 &1848797427 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4116010325914862990, guid: 1847c39afef5fc546a393397f6b11035,
+    type: 3}
+  m_PrefabInstance: {fileID: 469612971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1940334081
 GameObject:
   m_ObjectHideFlags: 0
